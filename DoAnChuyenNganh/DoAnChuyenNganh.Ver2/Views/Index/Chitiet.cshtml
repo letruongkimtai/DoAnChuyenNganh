@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Chitiet";
+    Layout = "~/Views/Shared/_LayoutDetails.cshtml";
+}
+
+<div class="grid_8">
+    <h3>@Model.Tenmon</h3>
+    <img src="~/images/@Model.Anh" style="height:220px;width:300px" alt="" class="img_inner fleft">
+    <div class="extra_wrapper">
+        <p class="col1" style="font-size:25px;color:black;"><strong><span><small>@Model.Giaban </small>đ</span></strong></p>
+       <p class="col1"><!--Cart btn--></p>
+    </div>
+    <p>@Model.Mota</p>
+</div>
+
