@@ -1,0 +1,13 @@
+﻿@model IEnumerable<DoAnChuyenNganh_Ver2.Models.CTmonan>
+
+<div  class="tab-content gallery1" style="display: block;">
+    @foreach(var m in Model)
+    {
+        <div class="grid_3">
+            <a href="#" class="gal"><img src="~/images/@m.Anh" alt=""><span></span></a>
+            <div class="col2"><span class="col3"><a href="#">@m.Tenmon</a></span> @m.Giaban d</div>
+         </div>
+
+    }
+    
+</div>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DoAnChuyenNganh_Ver2.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -14,5 +15,6 @@ namespace DoAnChuyenNganh_Ver2.Models
         }
 
         public DbSet<CTmonan> CTmonans { get; set; }
+        public DbSet<LoaiMon> LoaiMons { get; set; }
     }
 }

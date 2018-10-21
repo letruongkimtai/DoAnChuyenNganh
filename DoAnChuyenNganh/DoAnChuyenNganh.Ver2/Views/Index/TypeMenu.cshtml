@@ -1,0 +1,12 @@
+﻿@model IEnumerable<DoAnChuyenNganh_Ver2.Models.LoaiMon>
+
+<div class="grid_12">
+    <ul class="nav">
+        @foreach(var t in Model)
+        {
+            <li><a href="@Url.Action("MainMenu","Index",new { id = t.Maloai})" class="selected">@t.Tenloai</a></li>
+
+        }
+        
+    </ul>
+</div>    

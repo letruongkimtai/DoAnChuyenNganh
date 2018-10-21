@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DoAnChuyenNganh_Ver2.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -25,6 +26,10 @@ namespace DoAnChuyenNganh_Ver2.Models
         public string Trangthai { get; set; }
 
         public string Mota { get; set; }
+
+        public int? Maloai { get; set; }
+
+        public virtual LoaiMon LoaiMons { get; set; }
 
 
     }

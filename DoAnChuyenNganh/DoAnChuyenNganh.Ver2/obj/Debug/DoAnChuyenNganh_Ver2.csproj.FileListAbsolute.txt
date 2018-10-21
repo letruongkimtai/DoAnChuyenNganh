@@ -95,3 +95,9 @@ C:\Users\kimta\Desktop\DoAnChuyenNganh\DoAnChuyenNganh\DoAnChuyenNganh.Ver2\bin\
 C:\Users\kimta\Desktop\DoAnChuyenNganh\DoAnChuyenNganh\DoAnChuyenNganh.Ver2\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\kimta\Desktop\DoAnChuyenNganh\DoAnChuyenNganh\DoAnChuyenNganh.Ver2\bin\Microsoft.AI.Web.xml
 C:\Users\kimta\Desktop\DoAnChuyenNganh\DoAnChuyenNganh\DoAnChuyenNganh.Ver2\obj\Debug\DoAnChuyenNganh_Ver2.csproj.CopyComplete
+C:\Users\kimta\Desktop\DoAnChuyenNganh\DoAnChuyenNganh\DoAnChuyenNganh.Ver2\obj\Debug\DoAnChuyenNganh.Ver2.Migrations.LoaiMontb.resources
+C:\Users\kimta\Desktop\DoAnChuyenNganh\DoAnChuyenNganh\DoAnChuyenNganh.Ver2\obj\Debug\DoAnChuyenNganh.Ver2.Migrations.dropProperties.resources
+C:\Users\kimta\Desktop\DoAnChuyenNganh\DoAnChuyenNganh\DoAnChuyenNganh.Ver2\obj\Debug\DoAnChuyenNganh.Ver2.Migrations.autoid_added.resources
+C:\Users\kimta\Desktop\DoAnChuyenNganh\DoAnChuyenNganh\DoAnChuyenNganh.Ver2\obj\Debug\DoAnChuyenNganh.Ver2.Migrations.Relation_added.resources
+C:\Users\kimta\Desktop\DoAnChuyenNganh\DoAnChuyenNganh\DoAnChuyenNganh.Ver2\obj\Debug\DoAnChuyenNganh.Ver2.Migrations.drop_CTmonanVirtual.resources
+C:\Users\kimta\Desktop\DoAnChuyenNganh\DoAnChuyenNganh\DoAnChuyenNganh.Ver2\obj\Debug\DoAnChuyenNganh.Ver2.Migrations.DropMamonColm.resources

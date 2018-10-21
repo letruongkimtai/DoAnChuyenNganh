@@ -154,9 +154,34 @@
     <Compile Include="Migrations\201810190537386_initDB.Designer.cs">
       <DependentUpon>201810190537386_initDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810210408567_LoaiMontb.cs" />
+    <Compile Include="Migrations\201810210408567_LoaiMontb.Designer.cs">
+      <DependentUpon>201810210408567_LoaiMontb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810210416054_dropProperties.cs" />
+    <Compile Include="Migrations\201810210416054_dropProperties.Designer.cs">
+      <DependentUpon>201810210416054_dropProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810210420285_autoid_added.cs" />
+    <Compile Include="Migrations\201810210420285_autoid_added.Designer.cs">
+      <DependentUpon>201810210420285_autoid_added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810210425099_Relation_added.cs" />
+    <Compile Include="Migrations\201810210425099_Relation_added.Designer.cs">
+      <DependentUpon>201810210425099_Relation_added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810210430227_drop_CTmonanVirtual.cs" />
+    <Compile Include="Migrations\201810210430227_drop_CTmonanVirtual.Designer.cs">
+      <DependentUpon>201810210430227_drop_CTmonanVirtual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810210432298_DropMamonColm.cs" />
+    <Compile Include="Migrations\201810210432298_DropMamonColm.Designer.cs">
+      <DependentUpon>201810210432298_DropMamonColm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CTmonan.cs" />
     <Compile Include="Models\DataDbContext.cs" />
+    <Compile Include="Models\LoaiMon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -285,6 +310,7 @@
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Views\Shared\About.html" />
     <Content Include="Views\Shared\Index.html" />
+    <Content Include="Views\Shared\Menu.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -313,6 +339,10 @@
     <Content Include="Views\Index\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutDetails.cshtml" />
     <Content Include="Views\Index\Chitiet.cshtml" />
+    <Content Include="Views\Index\TypeMenu.cshtml" />
+    <Content Include="Views\Shared\_LayoutMenu.cshtml" />
+    <Content Include="Views\Index\MainMenu.cshtml" />
+    <Content Include="Views\Index\Menu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -329,6 +359,24 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201810190537386_initDB.resx">
       <DependentUpon>201810190537386_initDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810210408567_LoaiMontb.resx">
+      <DependentUpon>201810210408567_LoaiMontb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810210416054_dropProperties.resx">
+      <DependentUpon>201810210416054_dropProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810210420285_autoid_added.resx">
+      <DependentUpon>201810210420285_autoid_added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810210425099_Relation_added.resx">
+      <DependentUpon>201810210425099_Relation_added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810210430227_drop_CTmonanVirtual.resx">
+      <DependentUpon>201810210430227_drop_CTmonanVirtual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810210432298_DropMamonColm.resx">
+      <DependentUpon>201810210432298_DropMamonColm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

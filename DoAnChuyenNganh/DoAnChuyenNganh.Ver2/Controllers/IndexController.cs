@@ -28,6 +28,25 @@ namespace DoAnChuyenNganh_Ver2.Controllers
             return View(mon.Single());
         }
 
+        public ActionResult MainMenu()
+        {
+            return View();
+        }
+
+        public ActionResult TypeMenu(int id)
+        {
+            var loai = from l in data.LoaiMons select l;
+            return PartialView(loai);
+        }
+
+        public ActionResult Menu(int id)
+        {
+            var m = from s in data.LoaiMons
+                    where s.Maloai == id
+                    select s;
+            return PartialView(m);
+        }
+
        
 
         
