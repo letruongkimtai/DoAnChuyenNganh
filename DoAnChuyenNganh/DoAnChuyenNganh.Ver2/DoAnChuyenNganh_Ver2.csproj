@@ -145,7 +145,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\IndexController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -180,6 +180,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CTmonan.cs" />
+    <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\DataDbContext.cs" />
     <Compile Include="Models\LoaiMon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -336,13 +337,13 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Shared\_LayoutIndex.cshtml" />
     <Content Include="Scripts\js\PIE.php" />
-    <Content Include="Views\Index\Index.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutDetails.cshtml" />
-    <Content Include="Views\Index\Chitiet.cshtml" />
-    <Content Include="Views\Index\TypeMenu.cshtml" />
+    <Content Include="Views\User\Chitiet.cshtml" />
+    <Content Include="Views\User\TypeMenu.cshtml" />
     <Content Include="Views\Shared\_LayoutMenu.cshtml" />
-    <Content Include="Views\Index\MainMenu.cshtml" />
-    <Content Include="Views\Index\Menu.cshtml" />
+    <Content Include="Views\User\MainMenu.cshtml" />
+    <Content Include="Views\User\Menu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

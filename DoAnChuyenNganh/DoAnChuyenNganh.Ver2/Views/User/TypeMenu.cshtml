@@ -1,0 +1,10 @@
+﻿@model IEnumerable<DoAnChuyenNganh_Ver2.Models.LoaiMon>
+
+
+        @foreach(var t in Model)
+        {
+            <a href="@Url.Action("MainMenu","User",new { id = t.Maloai})">@t.Tenloai</a>
+
+        }
+        
+      

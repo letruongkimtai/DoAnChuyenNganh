@@ -75,11 +75,11 @@
     </header>
 
     <!--==============================Content=================================-->
-    <div>
-        @RenderBody()
-    </div>
+
     <div class="content">
-        
+        <div>
+            @RenderBody()
+        </div>
         <div class="container_12">
             <div class="grid_12">
                 <h3 class="head2">Today's Menu</h3>
@@ -87,17 +87,17 @@
 
             <div class="tabs tb gallery">
                 <div class="div-nav  ">
-                   @Html.Action("TypeMenu","Index")
+                    -----
                 </div>
-                <div class="div-tabs">
+              
 
-                    @Html.Action("Menu","Index")
+                    -----
 
-                </div>
+                
             </div>
         </div>
     </div>
-
+   
     <!--==============================footer=================================-->
 
     <footer>

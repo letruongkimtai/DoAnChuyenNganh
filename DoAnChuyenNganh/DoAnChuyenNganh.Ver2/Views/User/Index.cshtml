@@ -1,0 +1,31 @@
+﻿@model IEnumerable<DoAnChuyenNganh_Ver2.Models.CTmonan>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+
+<div class="container_12">
+    <div class="grid_12">
+        <h3>New in Menu</h3>
+    </div>
+    @foreach (var nf in Model)
+    {
+
+        <div class="grid_3">
+            <div class="box maxheight">
+                <img src="~/images/@nf.Anh" style="height: 126.53px" alt="">
+                <div class="title">@nf.Tenmon</div>
+                @nf.Mota
+                <br>
+                <a href="@Url.Action("Chitiet", "User", new { id = nf.Mamon })">More Info</a>
+            </div>
+        </div>
+    }
+    </div>
+
+
+
+
+
