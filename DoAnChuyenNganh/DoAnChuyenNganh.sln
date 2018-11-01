@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2043
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoAnChuyenNganh_Ver2", "DoAnChuyenNganh.Ver2\DoAnChuyenNganh_Ver2.csproj", "{E4E84E0F-81CC-4EA3-BA78-62C8939CABC3}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoAnChuyenNganh_Web_Ver4", "DoAnChuyenNganh_Web_Ver4\DoAnChuyenNganh_Web_Ver4.csproj", "{6E35E938-4D67-49E1-BA2B-DD887914C1F7}"
 EndProject
 Global
@@ -13,10 +11,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E4E84E0F-81CC-4EA3-BA78-62C8939CABC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E4E84E0F-81CC-4EA3-BA78-62C8939CABC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E4E84E0F-81CC-4EA3-BA78-62C8939CABC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E4E84E0F-81CC-4EA3-BA78-62C8939CABC3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6E35E938-4D67-49E1-BA2B-DD887914C1F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6E35E938-4D67-49E1-BA2B-DD887914C1F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E35E938-4D67-49E1-BA2B-DD887914C1F7}.Release|Any CPU.ActiveCfg = Release|Any CPU

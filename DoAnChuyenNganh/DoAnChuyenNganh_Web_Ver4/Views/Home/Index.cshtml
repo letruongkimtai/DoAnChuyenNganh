@@ -1,8 +1,29 @@
-﻿
+﻿@model IEnumerable<DoAnChuyenNganh_Web_Ver4.Models.Product>
+
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/_LayoutIndex.cshtml";
+     /**/
+     ViewBag.Title = "Index";
+     Layout = "~/Views/_LayoutIndex.cshtml";
 }
 
+@foreach (var item in Model)
+{
+
+    <div class="col-md-3 col-sm-6">
+        <img src="~/images/@item.Pic" alt="img">
+        <div class="text">
+            <a href="@Url.Action("Details","Product",new { id = item.PrID})">
+                <span>
+                    @item.PrName
+                </span>
+            </a>
+            <p>
+                @item.Price
+            </p>
+        </div>
+    </div>
+
+
+}
 
 

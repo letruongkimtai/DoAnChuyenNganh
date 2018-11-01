@@ -7,14 +7,18 @@ using System.Web.Mvc;
 
 namespace DoAnChuyenNganh_Web_Ver4.Controllers
 {
-    public class HomeController : Controller
+    public class PartialController : Controller
     {
-        WebsiteDbContext db = new WebsiteDbContext();
-        // GET: Home
+        WebsiteDbContext db = new WebsiteDbContext(); 
+        // GET: Partial
         public ActionResult Index()
         {
-            var list = db.Products.OrderByDescending(a => a.SellDate).ToList();
-            return View(list.Take(4));
+            return View();
+        }
+
+        public ActionResult MenuPartial()
+        {
+            return PartialView(db.ProductTypes);
         }
     }
 }

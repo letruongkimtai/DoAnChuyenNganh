@@ -7,14 +7,22 @@ using System.Web.Mvc;
 
 namespace DoAnChuyenNganh_Web_Ver4.Controllers
 {
-    public class HomeController : Controller
+    public class ProductController : Controller
     {
         WebsiteDbContext db = new WebsiteDbContext();
-        // GET: Home
+
+        // GET: Product
         public ActionResult Index()
         {
-            var list = db.Products.OrderByDescending(a => a.SellDate).ToList();
-            return View(list.Take(4));
+            return View();
+        }
+
+        public ActionResult Details(int id)
+        {
+            var p = from s in db.Products
+                    where id == s.PrID
+                    select s;
+            return View(p.Single());
         }
     }
 }
