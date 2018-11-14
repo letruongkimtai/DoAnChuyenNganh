@@ -99,9 +99,7 @@
     <Content Include="css\flexslider.css" />
     <Content Include="css\font-awesome.css" />
     <Content Include="css\fonts\fontawesome-webfont.svg" />
-    <Content Include="css\owl.carousel.css" />
-    <Content Include="css\owl.carousel.min.css" />
-    <Content Include="css\owl.theme.default.min.css" />
+    <Content Include="css\Login.css" />
     <Content Include="css\product-slider.css" />
     <Content Include="css\responsive.css" />
     <Content Include="css\style.css" />
@@ -174,6 +172,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PartialController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -187,6 +186,18 @@
     <Compile Include="Migrations\201810311159047_tables_added.cs" />
     <Compile Include="Migrations\201810311159047_tables_added.Designer.cs">
       <DependentUpon>201810311159047_tables_added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811080925476_fixing.cs" />
+    <Compile Include="Migrations\201811080925476_fixing.Designer.cs">
+      <DependentUpon>201811080925476_fixing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811100428086_requỉed_added.cs" />
+    <Compile Include="Migrations\201811100428086_requỉed_added.Designer.cs">
+      <DependentUpon>201811100428086_requỉed_added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811100706440_requỉed_deleted.cs" />
+    <Compile Include="Migrations\201811100706440_requỉed_deleted.Designer.cs">
+      <DependentUpon>201811100706440_requỉed_deleted.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -220,6 +231,13 @@
     <Content Include="Views\_LayoutIndex.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Partial\MenuPartial.cshtml" />
+    <Content Include="Views\_LayoutProduct.cshtml" />
+    <Content Include="Views\Product\Details.cshtml" />
+    <Content Include="Views\_LayoutMenu.cshtml" />
+    <Content Include="Views\Product\Menu.cshtml" />
+    <Content Include="Views\_LayoutLogin.cshtml" />
+    <Content Include="Views\Account\Signup.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -229,14 +247,23 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Product\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201810311115095_WebsiteDB.resx">
       <DependentUpon>201810311115095_WebsiteDB.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810311159047_tables_added.resx">
       <DependentUpon>201810311159047_tables_added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811080925476_fixing.resx">
+      <DependentUpon>201811080925476_fixing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811100428086_requỉed_added.resx">
+      <DependentUpon>201811100428086_requỉed_added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811100706440_requỉed_deleted.resx">
+      <DependentUpon>201811100706440_requỉed_deleted.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -18,5 +18,7 @@ namespace DoAnChuyenNganh_Web_Ver4.Models
         public DbSet<ProductType> ProductTypes { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Customer> Customers { get; set; }
+
+        
     }
 }

@@ -24,5 +24,18 @@ namespace DoAnChuyenNganh_Web_Ver4.Controllers
                     select s;
             return View(p.Single());
         }
+
+        public ActionResult Menu(int id)
+        {
+
+            if (id == 6)
+                 return View(db.Products);
+             else
+             {
+                 var item = from s in db.Products where s.TypeID == id select s;
+                 return View(item);
+             }
+
+        }
     }
 }

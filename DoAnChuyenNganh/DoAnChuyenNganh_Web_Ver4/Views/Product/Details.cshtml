@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/_LayoutProduct.cshtml";
+}
+
+<div class="single-product cold-md-12">
+    <div class="flexslider col-md-6">
+        <img src="~/images/product-slide2.jpg" alt="" style="width: 424px; height:267.11px" />
+    </div>
+    <div class="product-details col-md-6">
+        <h1>@Model.PrName</h1>
+        <p class="price">
+            @Model.Price
+        </p>
+        <span>$27.00</span>
+        <p>
+            @Model.Describe
+        </p>
+        <form action="#">
+            <div class="qtyminus">
+            </div>
+            <input type="text" name="quantity" value="1" class="qty">
+            <div class="qtyplus">
+            </div>
+        </form>
+        <a href="#">Thêm vào giỏ hàng</a>
+        <hr>
+        <div class="availability">
+            <p>
+                Tình trạng
+            </p>
+            <span>@Model.Status</span>
+        </div>
+        <div class="reviews">
+            <ul>
+                <li><a href="#"><i class="fa fa-star"></i></a></li>
+                <li><a href="#"><i class="fa fa-star"></i></a></li>
+                <li><a href="#"><i class="fa fa-star"></i></a></li>
+                <li><a href="#"><i class="fa fa-star-o"></i></a></li>
+                <li><a href="#"><i class="fa fa-star-o"></i></a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- End Single Product -->
+</div>

@@ -1,0 +1,50 @@
+﻿
+
+
+    <a  onclick="document.getElementById('id01').style.display='block'"
+            style="width:auto;">
+        Login
+    </a>
+
+    <div id="id01" class="modal">
+        <form class="modal-content animate" action="/action_page.php">
+           <h4 style="text-align:center;color:red">@ViewBag.Noti</h4>
+            <div class="lcontainer">
+                @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+                 {
+                    @Html.ValidationSummary(true)
+                     @ViewData["Error"]
+                     <label for="uname"><b>Username</b></label>
+                     <input style="width: 100%;padding: 12px 20px;margin: 8px 0;display: inline-block;border: 1px solid #ccc;box-sizing: border-box;"
+                            type="text" placeholder="Enter Username" name="UserName" required>
+
+                     <label for="psw"><b>Password</b></label>
+                     <input style="width: 100%;padding: 12px 20px;margin: 8px 0;display: inline-block;border: 1px solid #ccc;box-sizing: border-box;"
+                            type="password" placeholder="Enter Password" name="Passwords" required>
+
+                     <button style=" background-color: #4CAF50;color: white;padding: 14px 20px;margin: 8px 0;border: none;cursor: pointer;width: 100%;opacity: 0.8;"
+                             type="submit">
+                         Login
+                     </button>
+                 }
+            </div>
+
+            <div class="lcontainer" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                <span class="lpsw">Forgot <a href="#">password?</a></span>
+            </div>
+        </form>
+    </div>
+
+
+    <script>
+    // Get the modal
+    var modal = document.getElementById('id01');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+    if (event.target == modal) {
+    modal.style.display = "none";
+    }
+    }
+    </script>

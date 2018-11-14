@@ -1,0 +1,5 @@
+Q: db.ccustomer.singleordefault(n=>n.username == username && n.pass==pass)
+
+A: db = doi tuong database duoc khoi tao o dau controller
+   customer = ten table trong database
+   singleordefault(<dieu khien>) = lay ra DUY NHAT 1 doi tuong phu hop voi dieu kien da khai bao

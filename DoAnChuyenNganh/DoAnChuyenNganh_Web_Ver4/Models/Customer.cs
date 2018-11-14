@@ -15,17 +15,23 @@ namespace DoAnChuyenNganh_Web_Ver4.Models
         public int CtmID { get; set; }
 
         public string UserName { get; set; }
+        //[Required(ErrorMessage = "Tên đăng nhập không được để trống")]
 
         public string Passwords { get; set; }
+        //[Required(ErrorMessage = "Mật khẩu không được để trống")]
 
         public string CtmName { get; set; }
+       //[Required(ErrorMessage = "Họ tên không được để trống")]
 
         public DateTime BDate { get; set; }
 
         public string Addr { get; set; }
+        //[Required(ErrorMessage = "Địa chỉ không được để trống")]
 
-        public int Tell { get; set; }
+        public string Tell { get; set; }
+        //[Required(ErrorMessage = "Số điện thoại không được để trống")]
 
         public string Eaddr { get; set; }
+    
     }
 }

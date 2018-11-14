@@ -1,0 +1,64 @@
+﻿
+@{
+              
+
+                ViewBag.Title = "Signup";
+                Layout = "~/Views/_LayoutLogin.cshtml";
+}
+
+
+@using (Html.BeginForm("Signup", "Account", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+
+    <div class="col-md-6 check-name">
+        <div>
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <input style="margin-bottom:10px" type="text" name="UserName" class="form-control" placeholder="Tên Đăng Nhập" required>
+                        @ViewData["Error2"]
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <input style="margin-bottom:10px" type="password" name="Passwords" class="form-control" placeholder="Mật khẩu" required>
+                        @ViewData["Error2"]
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <input style="margin-bottom:10px" type="text" name="CtmName" class="form-control" placeholder="Họ Tên" required>
+                        @ViewData["Error2"]
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <input style="margin-bottom:10px" type="date" name="BDate" class="form-control" placeholder="Ngày Sinh">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <input style="margin-bottom:10px" type="text" name="Addr" class="form-control" placeholder="Địa Chỉ" required>
+                        @ViewData["Error3"]
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <input style="margin-bottom:10px" type="tel" name="Tell" class="form-control" placeholder="Số Điện Thoại" required>
+                        @ViewData["Error4"]
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <input style="margin-bottom:10px" type="email" name="Eaddr" class="form-control" placeholder="Địa Chỉ Email">
+                        @ViewData["Error5"]
+                    </div>
+                </div>
+            </form>
+            <button style="float:left" type="submit" class="btn btn-default">Đăng ký</button>
+        </div>
+    </div>
+
+}
+
