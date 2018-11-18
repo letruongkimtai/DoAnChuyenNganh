@@ -112,6 +112,7 @@
     <Content Include="fonts\webfonts\geo-semibold\svg\index.html" />
     <Content Include="fonts\webfonts\geo-semibold\svg\style_169898.svg" />
     <Content Include="Global.asax" />
+    <Content Include="images\cart.png" />
     <Content Include="images\client1.png" />
     <Content Include="images\client2.png" />
     <Content Include="images\client3.png" />
@@ -165,9 +166,6 @@
     <Content Include="js\modernizr.js" />
     <Content Include="js\script.js" />
     <Content Include="js\waypoint.min.js" />
-    <Content Include="OwlScript\jquery.min.js" />
-    <Content Include="OwlScript\owl.carousel.js" />
-    <Content Include="OwlScript\owl.carousel.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -175,6 +173,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PartialController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -199,9 +198,15 @@
     <Compile Include="Migrations\201811100706440_requỉed_deleted.Designer.cs">
       <DependentUpon>201811100706440_requỉed_deleted.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811150828311_Orderdt_Orders_added_to_database.cs" />
+    <Compile Include="Migrations\201811150828311_Orderdt_Orders_added_to_database.Designer.cs">
+      <DependentUpon>201811150828311_Orderdt_Orders_added_to_database.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductType.cs" />
     <Compile Include="Models\WebsiteDbContext.cs" />
@@ -238,6 +243,9 @@
     <Content Include="Views\_LayoutLogin.cshtml" />
     <Content Include="Views\Account\Signup.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\_LayoutCart.cshtml" />
+    <Content Include="Views\Order\Cart.cshtml" />
+    <Content Include="Views\Order\CartPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -264,6 +272,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811100706440_requỉed_deleted.resx">
       <DependentUpon>201811100706440_requỉed_deleted.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811150828311_Orderdt_Orders_added_to_database.resx">
+      <DependentUpon>201811150828311_Orderdt_Orders_added_to_database.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -96,10 +96,7 @@ namespace DoAnChuyenNganh_Web_Ver4.Controllers
             return View();
         }
 
-        public ActionResult LoginStatus()
-        {
-            return View();
-        }
+        
 
 
     }

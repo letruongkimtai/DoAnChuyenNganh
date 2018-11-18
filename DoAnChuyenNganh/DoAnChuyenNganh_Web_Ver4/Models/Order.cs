@@ -16,7 +16,11 @@ namespace DoAnChuyenNganh_Web_Ver4.Models
 
         public DateTime Odate { get; set; }
 
-        public int Total { get; set; }
+        public string PaymentMethod { get; set; }
+
+        public bool PaymentCheck { get; set; }
+
+        public bool DeliveryStatus { get; set; }
 
 
         public int CtmID { get; set; }

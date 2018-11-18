@@ -1,0 +1,134 @@
+﻿@using DoAnChuyenNganh_Web_Ver4.Models
+@model List<Cart>
+@{
+    ViewBag.Title = "Cart";
+    Layout = "~/Views/_LayoutCart.cshtml";
+}
+
+<div class="sixteen columns cart-section oflow">
+    <!-- Cart -->
+   
+        <table class="table cart-table responsive-table">
+            <tr>
+                <th>
+
+                </th>
+                <th>
+                    TÊN MÓN
+                </th>
+                <th>
+                    GIÁ
+                </th>
+                <th>
+                    SỐ LƯỢNG
+                </th>
+                <th>
+                    ĐƠN GIÁ
+                </th>
+                <th>
+                </th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <!-- Item -->
+                <tr>
+                    <td>
+                        <img src="images/@item.TempPic" alt="" />
+                    </td>
+                    <td class="cart-title">
+                        <a href="#">@item.TempName</a>
+                    </td>
+                    <td>
+                        @item.TempPrice
+                    </td>
+                    <td>
+                        <form action='#'>
+                            <div class="qtyminus">
+                            </div>
+                            <input type='text' name="Quantity" value="@item.TempAmount"  class="qty" />
+                            <div class="qtyplus">
+                            </div>
+                        </form>
+                    </td>
+                    <td class="cart-total">
+                        @item.TempTotal
+                    </td>
+                    <td>
+                        <a class="cart-remove"> @Html.ActionLink("X", "DeleteItem", new { id = item.TempID }) </a>
+                    </td>
+                </tr>
+
+            }
+        </table>
+    </div>
+        <div class="taxat">
+            <form action="#" method="get" class="apply-coupon">
+                <input class="search-field" type="text" placeholder="Mã giảm giá" value="">
+                <a href="#" class="coupon-btn checkout-btn">Áp dụng</a>
+            </form>
+            <div class="cart-buttons">
+                <a href="#">Hủy đơn hàng</a>
+                <input style="padding: 14px 20px;color: #fff;background: #382925;-webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;font-size: 12px;text-transform: uppercase;font-weight: bold;"
+                       type="submit" value="Cập nhật" />
+            </div>
+            <div class="col-md-6 taxes nopadding">
+                <ul>
+                    <li><a href="#">shipping &amp; taxes</a></li>
+                </ul>
+                <p>
+                    Enter your destination to get a shipping estimate.
+                </p>
+                <div>
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <input type="email" class="form-control" placeholder="your name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <input type="password" class="form-control" placeholder="your e-mail">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <input type="password" class="form-control" placeholder="post code">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- Cart Totals -->
+            <div class="col-md-6 eight columns cart-totals">
+                <table class="table cart-table test">
+                    <tbody>
+                        <tr>
+                            <th>
+                                Tổng cộng
+                            </th>
+                            <td>
+                                <strong>@ViewBag.CartTotal</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Phí vận chuyển
+                            </th>
+                            <td>
+                                <strong>@ViewBag.Shipping</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Thành tiền
+                            </th>
+                            <td>
+                                <strong>@ViewBag.OrderTotal</strong>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+                <a class="calculate-shipping">Thanh toán</a>
+            </div>
+        </div>

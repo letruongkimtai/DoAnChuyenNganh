@@ -1,5 +1,22 @@
+﻿*Chú thích:
+	+ Q: Question
+	+ A: Answer
+	+ H: Hint
+
+
+/*-----------------------------------------------WEBSITE--------------------------------------------------------*/
+
 Q: db.ccustomer.singleordefault(n=>n.username == username && n.pass==pass)
 
 A: db = doi tuong database duoc khoi tao o dau controller
    customer = ten table trong database
    singleordefault(<dieu khien>) = lay ra DUY NHAT 1 doi tuong phu hop voi dieu kien da khai bao
+
+H: Mỗi dòng trong html chỉ được @ duy nhất 1 lần
+
+H: @url.action("action","controller",new{id=item.prid,url=request,url.tostring()})
+	H2: trong new khai gì trong action thi new ghi nấy 
+	      ex: action(int id, string url) => new{id=item.prid,url=request,url.tostring()}
+
+
+/*----------------------------------------------APPLICATION---------------------------------------------------*/

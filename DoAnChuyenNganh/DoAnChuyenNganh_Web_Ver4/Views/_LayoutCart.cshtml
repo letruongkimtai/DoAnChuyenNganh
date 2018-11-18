@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="~/css/responsive.css" type="text/css" media="screen" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="~/css/product-slider.css" type="text/css" media="screen" />
 </head>
 <body>
     <!--top-strip-->
@@ -47,15 +46,15 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#"><img src="images/logo.png" alt="logo"></a>
+                    <a class="navbar-brand" href="#"><img src="~/images/logo.png" alt="logo"></a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="shop.html">Shop</a></li>
-                        <li class="active"><a href="single.html">Single</a></li>
-                        <li><a href="cart.html">Cart</a></li>
+                        <li><a href="single.html">Single</a></li>
+                        <li class="active"><a href="cart.html">Cart</a></li>
                         <li><a href="checkout.html">Checkout</a></li>
                         <li><a href="about.html">About us</a></li>
                         <li class="dropdown">
@@ -79,10 +78,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-10 produti">
-                    <h4>products</h4>
+                    <h4>CHECKOUT</h4>
                 </div>
                 <div class="col-md-2 cart">
-                    @Html.Action("CartPartial", "Order")
+                    <h4><a href="#">chart (2 items)</a></h4>
                     <ul>
                         <li><a href="#">home /</a></li>
                         <li><a href="#">products</a></li>
@@ -92,85 +91,17 @@
         </div>
     </div>
     <!-- shop-page -->
-    <div class="container content">
+    <div class="container checking-area">
         <div class="row">
-            <div class="col-md-9 white-bg">
-                <!-- Single Product -->
-                <div>
-                    @RenderBody()
-                </div>
-      
-                <div class="col-md-12 tabs">
-                    <div class="bs-example">
-                        <div class="tabbable">
-                            <ul class="nav nav-tabs">
-                                <li class="active"><a data-toggle="tab" href="#tab1" data-loading-text="Loading...">Section 1</a></li>
-                                <li><a data-toggle="tab" href="#tab2" data-loading-text="Loading...">Section 2</a></li>
-                                <li><a data-toggle="tab" href="#tab3" data-loading-text="Loading...">Section 3</a></li>
-                            </ul>
-                            <div class="tab-content">
-                                <div id="tab1" class="tab-pane active fade in">
-                                    <p>
-                                        Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui. Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi.
-                                    </p>
-                                </div>
-                                <div id="tab2" class="tab-pane fade">
-                                    <p>
-                                        Vestibulum nec erat eu nulla rhoncus fringilla ut non neque. Vivamus nibh urna, ornare id gravida ut, mollis a magna. Aliquam porttitor condimentum nisi, eu viverra ipsum porta ut. Nam hendrerit bibendum turpis, sed molestie mi fermentum id. Aenean volutpat velit sem. Sed consequat ante in rutrum convallis. Nunc facilisis leo at faucibus adipiscing. Duis auctor dictum erat hendrerit dapibus.
-                                    </p>
-                                </div>
-                                <div id="tab3" class="tab-pane fade">
-                                    <p>
-                                        WInteger convallis, nulla in sollicitudin placerat, ligula enim auctor lectus, in mollis diam dolor at lorem. Sed bibendum nibh sit amet dictum feugiat. Vivamus arcu sem, cursus a feugiat ut, iaculis at erat. Donec vehicula at ligula vitae venenatis. Sed nunc nulla, vehicula non porttitor in, pharetra et dolor. Fusce nec velit velit. Pellentesque consectetur eros nec interdum varius. Quisque at mi dolor.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+            <div class="col-md-9 cart-area">
+                    <!-- Cart -->
+                    <div>
+                        @RenderBody()
                     </div>
-                </div>
-                <!--articles-->
-                <div class="row articles">
-                    <div class="col-md-4">
-                        <img src="~/images/product2.jpg" alt="">
-                        <div class="text">
-                            <a href="#">
-                                <span>
-                                    worldwide shipping
-                                </span>
-                            </a>
-                            <p>
-                                $ 23.00
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <img src="~/images/product3.jpg" alt="">
-                        <div class="text">
-                            <a href="#">
-                                <span>
-                                    worldwide shipping
-                                </span>
-                            </a>
-                            <p>
-                                $ 23.00
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <img src="~/images/product4.jpg" alt="">
-                        <div class="text">
-                            <a href="#">
-                                <span>
-                                    worldwide shipping
-                                </span>
-                            </a>
-                            <p>
-                                $ 23.00
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                <!-- Start -->
+                <!-- end -->
             </div>
+            <!-- Sidebar -->
             <div class="col-md-3 shop-sidebar">
                 <div class="sidebar-widgets">
                     <div class="shop-widget">
@@ -279,7 +210,11 @@
         </div>
     </div>
     <!--prize-->
-    
+    <div class="prize">
+        <div class="container">
+            <h1>win our special prize on our facebook page</h1>
+        </div>
+    </div>
     <!--end-prize-->
     <!--footer-->
     <div class="full-footer">
@@ -287,7 +222,7 @@
             <div class="container info">
                 <div class="row">
                     <div class="col-md-4 addres">
-                        <img src="~/images/footer-logo.png" alt="">
+                        <img src="~/images/footer-logo.png" alt="logo">
                         <h6>Delicio Webshop,LLC</h6>
                         <p>
                             South Washington Street 828,Washington,USA
@@ -341,24 +276,10 @@
         </div>
     </div>
     <!--end-footer-->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.min.js">\x3C/script>')</script>
-    <script defer src="~/js/jquery.flexslider.js"></script>
-    <script type="text/javascript">
-    $(window).load(function(){
-      $('.flexslider').flexslider({
-        animation: "slide",
-        controlNav: "thumbnails",
-        start: function(slider){
-          $('body').removeClass('loading');
-        }
-      });
-    });
-    </script>
     <script type="text/javascript" src="~/js/jquery.min.js"></script>
     <script type="text/javascript" src="~/js/bootstrap.js"></script>
     <script type="text/javascript" src="~/js/script.js"></script>
-    <script src="js/modernizr.js"></script>
+    <script src="~/js/modernizr.js"></script>
     <script type="text/javascript" src="~/js/jquery.nouislider.min.js"></script>
 </body>
 </html>

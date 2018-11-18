@@ -20,5 +20,6 @@ namespace DoAnChuyenNganh_Web_Ver4.Controllers
         {
             return PartialView(db.ProductTypes);
         }
+
     }
 }

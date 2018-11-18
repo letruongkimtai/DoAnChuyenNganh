@@ -20,11 +20,11 @@
         <form action="#">
             <div class="qtyminus">
             </div>
-            <input type="text" name="quantity" value="1" class="qty">
+            <input  type="number" name="Quantity" value="1" class="qty">
             <div class="qtyplus">
             </div>
         </form>
-        <a href="#">Thêm vào giỏ hàng</a>
+        <a href="@Url.Action("AddToCart","Order",new {id = Model.PrID,URL=Request.Url.ToString()})">Thêm vào giỏ hàng</a>
         <hr>
         <div class="availability">
             <p>

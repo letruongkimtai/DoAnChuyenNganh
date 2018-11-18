@@ -20,6 +20,7 @@
             <p>
                 đ @item.Price
             </p>
+            <a type="submit" style="border-style: outset; padding: 5px 7px 5px 7px; background: #c11b1b; background: #c11b1b;color: white;" href="@Url.Action("AddToCart","Order",new {id = item.PrID,URL=Request.Url.ToString()})">ORDER</a>
         </div>
     </div>
 }

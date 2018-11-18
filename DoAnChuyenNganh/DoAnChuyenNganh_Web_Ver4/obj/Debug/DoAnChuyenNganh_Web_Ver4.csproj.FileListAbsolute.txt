@@ -57,3 +57,4 @@ C:\Users\kimta\Desktop\DoAnChuyenNganh\DoAnChuyenNganh\DoAnChuyenNganh_Web_Ver4\
 C:\Users\kimta\Desktop\DoAnChuyenNganh\DoAnChuyenNganh\DoAnChuyenNganh_Web_Ver4\obj\Debug\DoAnChuyenNganh_Web_Ver4.Migrations.fixing.resources
 C:\Users\kimta\Desktop\DoAnChuyenNganh\DoAnChuyenNganh\DoAnChuyenNganh_Web_Ver4\obj\Debug\DoAnChuyenNganh_Web_Ver4.Migrations.requỉed_added.resources
 C:\Users\kimta\Desktop\DoAnChuyenNganh\DoAnChuyenNganh\DoAnChuyenNganh_Web_Ver4\obj\Debug\DoAnChuyenNganh_Web_Ver4.Migrations.requỉed_deleted.resources
+C:\Users\kimta\Desktop\DoAnChuyenNganh\DoAnChuyenNganh\DoAnChuyenNganh_Web_Ver4\obj\Debug\DoAnChuyenNganh_Web_Ver4.Migrations.Orderdt_Orders_added_to_database.resources
