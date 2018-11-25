@@ -1,0 +1,50 @@
+﻿@using DoAnChuyenNganh_Web_Ver4.Models
+@{
+    Customer ctm = (Customer)Session["Customer"];
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Thông tin đặt hàng</a>
+        </h4>
+    </div>
+    <div>
+        <div class="panel-body pb2">
+            <div class="accordion-list-content" style="overflow: hidden; display: block;">
+
+                <div class="col-md-6 check-name">
+                    <div>
+
+                        @using (Html.BeginForm())
+                        {
+                            @Html.ValidationSummary(true)
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control" value="@ctm.CtmName" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control" value="@ctm.Addr" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control" value="@ctm.Tell" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control" value="@DateTime.Now.ToShortDateString()" readonly>
+                                </div>
+                            </div>
+                        }
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

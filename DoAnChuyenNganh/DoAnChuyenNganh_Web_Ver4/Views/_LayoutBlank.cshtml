@@ -1,18 +1,16 @@
 ﻿
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" class="no-js">
 <head>
     <meta charset="utf-8">
     <title>delicio</title>
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
     <link rel="stylesheet" type="text/css" href="~/css/bootstrap.css" media="screen">
     <link rel="stylesheet" type="text/css" href="~/css/style.css" media="screen">
     <link rel="stylesheet" type="text/css" href="~/css/font-awesome.css" media="screen">
-    <link rel="stylesheet" href="~/css/flexslider.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="~/css/responsive.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/responsive.css" type="text/css" media="screen" />
     <link href="~/css/Login.css" rel="stylesheet" type="text/css" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
@@ -55,19 +53,19 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#"><img src="~/images/logo.png" alt="logo"></a>
+                    <a class="navbar-brand" href="#"><img src="images/logo.png" alt="logo"></a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="@Url.Action("Index","Home")">Home</a></li>
+                        <li><a href="@Url.Action("Index","Home")">Home</a></li>
                         <li><a href="shop.html">Shop</a></li>
                         <li><a href="single.html">Single</a></li>
                         <li><a href="cart.html">Cart</a></li>
-                        <li><a href="checkout.html">Checkout</a></li>
+                        <li class="active"><a href="checkout.html">Checkout</a></li>
                         <li><a href="about.html">About us</a></li>
                         <li class="dropdown">
-                            <a href="" data-toggle="dropdown" class="dropdown-toggle">Menu</a>
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Dropdown</a>
                             <ul class="dropdown-menu">
                                 @Html.Action("MenuPartial", "Partial")
                             </ul>
@@ -80,88 +78,33 @@
         </nav>
     </div>
     <!--end-navbar-->
-    <!--flex-slider-->
-    <div class="main-flexslider">
-        <ul>
-            <li class="slides">
-                <img src="~/images/slide-01.jpg" alt="slide 01">
-
-            </li>
-            <li class="slides">
-                <img src="~/images/slide-01.jpg" alt="slide 01">
-
-            </li>
-
-        </ul>
-    </div>
-    <!--end-flex-slider-->
-    <!--Icon Blocks-->
-    <div class="container">
-        <div class="icon-blocks">
-            <div class="col-md-4">
-                <p>
-                    <i class="fa fa-group"></i>personalized shop
-                </p>
-            </div>
-            <div class="col-md-4">
-                <p>
-                    <i class="fa fa-bell"></i>email notification
-                </p>
-            </div>
-            <div class="col-md-4">
-                <p>
-                    <i class="fa fa-globe"></i>worldwide shipping
-                </p>
+    <div class="page-title">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 produti">
+                    <h4>CHECKOUT</h4>
+                </div>
+                <div class="col-md-2 cart">
+                    <h4><a href="#">chart (2 items)</a></h4>
+                    <ul>
+                        <li><a href="#">home /</a></li>
+                        <li><a href="#">products</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-    <!--end Icon Blocks-->
-    <!--articles-->
-    <div class="container">
-        <div class="row articles">
+    <!-- shop-page -->
+    <div class="container checking-area">
+        <div class="row">
+
+            <!--Something here-->
             <div>
                 @RenderBody()
             </div>
-        </div>
-    </div>
-    <!--end-articles-->
-    <!-- partners box -->
-    <div class="container">
-        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner">
-                <div class="item active">
-                    <ul class="partner-list">
-                        <li><img alt="" src="~/images/client1.png"></li>
-                        <li><img alt="" src="~/images/client2.png"></li>
-                        <li><img alt="" src="~/images/client3.png"></li>
-                        <li><img alt="" src="~/images/client4.png"></li>
-                    </ul>
-                </div>
-                <div class="item">
-                    <ul class="partner-list">
-                        <li><img alt="" src="~/images/client1.png"></li>
-                        <li><img alt="" src="~/images/client2.png"></li>
-                        <li><img alt="" src="~/images/client3.png"></li>
-                        <li><img alt="" src="~/images/client4.png"></li>
-                    </ul>
-                </div>
-            </div>
-            <!-- Controls -->
-            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev"></a>
-            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next"></a>
-        </div>
-    </div>
-    <!--end-partners box -->
-    <!--articles-->
-    <div class="container">
-        <div class="row articles">
-            <div class="owl-carousel owl-theme">
-            </div>
-        </div>
-    </div>
 
-    <!--end-articles-->
+        </div>
+    </div>
     <!--prize-->
     <div class="prize">
         <div class="container">
@@ -175,7 +118,7 @@
             <div class="container info">
                 <div class="row">
                     <div class="col-md-4 addres">
-                        <img src="~/images/footer-logo.png" alt="logo">
+                        <img src="images/footer-logo.png" alt="logo">
                         <h6>Delicio Webshop,LLC</h6>
                         <p>
                             South Washington Street 828,Washington,USA
@@ -229,29 +172,22 @@
         </div>
     </div>
     <!--end-footer-->
-
+    <script src="~/js/jquery-1.11.0.min.js"></script>
+    <script src="~/js/lightbox.js"></script>
+    <script>
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-2196019-1']);
+        _gaq.push(['_trackPageview']);
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
     <script type="text/javascript" src="~/js/jquery.min.js"></script>
     <script type="text/javascript" src="~/js/bootstrap.js"></script>
+    <script type="text/javascript" src="~/js/script.js"></script>
     <script src="~/js/modernizr.js"></script>
-    <script type="text/javascript" src="~/js/jquery.flexslider-min.js"></script>
-    <script type="text/javascript">
-        // jQuery
-        (function ($) {
-            "use strict";
-            $(document).ready(function () {
-                // Main Slider
-                $('.main-flexslider').flexslider({
-                    directionNav: true,
-                    controlNav: false,
-                    animation: "fade",
-                    slideshowSpeed: 7000,
-                    prevText: "",
-                    nextText: "",
-                });
-            });
-        })(jQuery);
-    </script>
-
-
+    <script type="text/javascript" src="~/js/jquery.nouislider.min.js"></script>
 </body>
 </html>

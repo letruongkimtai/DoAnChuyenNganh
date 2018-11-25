@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="~/css/style.css" media="screen">
     <link rel="stylesheet" type="text/css" href="~/css/font-awesome.css" media="screen">
     <link rel="stylesheet" href="~/css/responsive.css" type="text/css" media="screen" />
+    <link href="~/css/Login.css" rel="stylesheet" type="text/css" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 </head>
@@ -26,9 +27,15 @@
                 </div>
                 <div class="col-md-6 language">
                     <ul>
-                        <li><a href="#">Eng</a></li>
-                        <li><a href="#">Usd</a></li>
-                        <li><a href="#">My Account</a></li>
+                        @if (Session["Customer"] != null)
+                        {
+                            <li>@Session["Customer"].ToString()</li>
+                        }
+                        else
+                        {
+                            <li>@Html.Action("Login","Account")</li>
+
+                        }
                     </ul>
                 </div>
             </div>
@@ -51,7 +58,7 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="@Url.Action("Index","Home")">Home</a></li>
                         <li><a href="shop.html">Shop</a></li>
                         <li><a href="single.html">Single</a></li>
                         <li><a href="cart.html">Cart</a></li>
@@ -60,10 +67,7 @@
                         <li class="dropdown">
                             <a href="#" data-toggle="dropdown" class="dropdown-toggle">Dropdown</a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Lorem</a></li>
-                                <li><a href="#">Ipsum</a></li>
-                                <li><a href="#">Dolor sit amet</a></li>
-                                <li><a href="#">Dropdown</a></li>
+                                @Html.Action("MenuPartial", "Partial")
                             </ul>
                         </li>
                         <li><a href="contact.html">Contact</a></li>
@@ -81,11 +85,8 @@
                     <h4>CHECKOUT</h4>
                 </div>
                 <div class="col-md-2 cart">
-                    <h4><a href="#">chart (2 items)</a></h4>
-                    <ul>
-                        <li><a href="#">home /</a></li>
-                        <li><a href="#">products</a></li>
-                    </ul>
+                    @Html.Action("CartPartial", "Order")
+                    
                 </div>
             </div>
         </div>
@@ -98,8 +99,8 @@
                     <div class="bs-example">
                         <div class="panel-group" id="accordion">
                             <div class="panel panel-default">
-                              
-                               
+
+
                                 <div>
 
                                     <div class="panel-body pb2">
@@ -295,14 +296,14 @@
     <script src="~/js/jquery-1.11.0.min.js"></script>
     <script src="~/js/lightbox.js"></script>
     <script>
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-2196019-1']);
-    _gaq.push(['_trackPageview']);
-    (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-2196019-1']);
+        _gaq.push(['_trackPageview']);
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
     </script>
     <script type="text/javascript" src="~/js/jquery.min.js"></script>
     <script type="text/javascript" src="~/js/bootstrap.js"></script>

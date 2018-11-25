@@ -62,14 +62,10 @@
         </table>
     </div>
         <div class="taxat">
-            <form action="#" method="get" class="apply-coupon">
-                <input class="search-field" type="text" placeholder="Mã giảm giá" value="">
-                <a href="#" class="coupon-btn checkout-btn">Áp dụng</a>
-            </form>
+            @Html.Action("Discount","Order")
             <div class="cart-buttons">
                 <a href="#">Hủy đơn hàng</a>
-                <input style="padding: 14px 20px;color: #fff;background: #382925;-webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;font-size: 12px;text-transform: uppercase;font-weight: bold;"
-                       type="submit" value="Cập nhật" />
+                <input type="submit" value="Cập nhật" />
             </div>
             <div class="col-md-6 taxes nopadding">
                 <ul>
@@ -120,6 +116,14 @@
                         </tr>
                         <tr>
                             <th>
+                                Giảm giá
+                            </th>
+                            <td>
+                                <strong>@ViewBag.Discount</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
                                 Thành tiền
                             </th>
                             <td>
@@ -129,6 +133,6 @@
                     </tbody>
                 </table>
                 <br>
-                <a class="calculate-shipping">Thanh toán</a>
+                <a href="@Url.Action("CheckOut","Order")" class="calculate-shipping"> Thanh toán    </a>
             </div>
         </div>

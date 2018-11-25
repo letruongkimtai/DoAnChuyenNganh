@@ -21,5 +21,24 @@ namespace DoAnChuyenNganh_Web_Ver4.Controllers
             return PartialView(db.ProductTypes);
         }
 
+        public ActionResult Confirm()
+        {
+            return View();
+        }
+
+        public ActionResult Error()
+        {
+            return View();
+        }
+
+        public ActionResult LoginWarning()
+        {
+            return PartialView();
+        }
+
+        public ActionResult BestSell()
+        {
+            return PartialView();
+        }
     }
 }

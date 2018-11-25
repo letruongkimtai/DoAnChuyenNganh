@@ -15,21 +15,56 @@ namespace DoAnChuyenNganh_Web_Ver4.Controllers
         {
             return View();
         }
-
+        /*---------------------------Order Section----------------------------------------*/
         public ActionResult Cart()
         {
             List<Cart> orders = GetList();
             if(orders.Count==0)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Error", "Partial");
             }
             ViewBag.CartTotal = CartTotal();
             ViewBag.Shipping = Shipping();
+            if(CartTotal() <= OrderTotal())
+            {
+                ViewBag.Discount = 0;
+            }
+            else
+            {
+                ViewBag.Discount =  CartTotal() - OrderTotal();
+            }
             ViewBag.OrderTotal = OrderTotal();
 
 
             return View(orders);
         }
+
+
+        public ActionResult Discount()
+        {
+            return PartialView();
+        }
+
+        [HttpGet]
+        public ActionResult Discount(FormCollection collection)
+        {
+            double dc = 0;
+            double d = OrderTotal();
+            var couponcode = collection["Coupon"];
+            Coupon cp = new Coupon();
+            if (Equals(couponcode, cp.CouponID) == true)
+            {
+                dc = cp.Discount;
+                d = Shipping() + dc + OrderTotal();
+            }
+            else
+            {
+                ViewBag.Error = "Coupon không tồn tại!";
+            }
+
+            return PartialView();
+        }
+
 
         public ActionResult CartPartial()
         {
@@ -37,6 +72,61 @@ namespace DoAnChuyenNganh_Web_Ver4.Controllers
             ViewBag.Amount = Amount();
             return PartialView();
         }
+        /*---------------------------Payment Section-------------------------------------*/
+
+        public ActionResult CustomerInfo()
+        {
+            return PartialView();
+        }
+
+        [HttpGet]
+        public ActionResult CheckOut()
+        {
+            if(Session["Customer"]==null||Session["Customer"].ToString()=="")
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            if(Session["Cart"]==null)
+            {
+                return RedirectToAction("Error", "Partial");
+            }
+
+            List<Cart> orders = GetList();
+            ViewBag.CartTotal = CartTotal();
+            ViewBag.Shipping = Shipping();
+            ViewBag.OrderTotal = OrderTotal();
+
+            return View(orders);
+        }
+        [HttpPost]
+        public ActionResult CheckOut(FormCollection collection)
+        {
+            Order bill = new Order();
+            Customer customer = new Customer();
+            List<Cart> orders = GetList();
+
+            bill.CtmID = customer.CtmID;
+            bill.Odate = DateTime.Now;
+            bill.DeliveryStatus = false;
+            bill.PaymentCheck = false;
+            db.Orders.Add(bill);
+            db.SaveChanges();
+
+            foreach (var item in orders)
+            {
+                OrderDetail orderDetail = new OrderDetail();
+                orderDetail.OrderID = bill.OrderID;
+                orderDetail.PrID = item.TempID;
+                orderDetail.Quantity = item.TempAmount;
+                orderDetail.Total =(decimal) item.TempTotal;
+                db.OrderDetails.Add(orderDetail);
+            }
+
+            db.SaveChanges();
+            Session["Cart"] = null;
+            return RedirectToAction("Confirm", "Partial");
+        }
+
 
 
         /*---------------------------------Function-------------------------------------*/
@@ -52,7 +142,6 @@ namespace DoAnChuyenNganh_Web_Ver4.Controllers
             return orders;
         }
 
-        
         private int Amount()
         {
             int Amt = 0;

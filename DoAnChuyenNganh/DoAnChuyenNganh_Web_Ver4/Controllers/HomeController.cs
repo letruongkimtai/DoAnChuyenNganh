@@ -16,5 +16,7 @@ namespace DoAnChuyenNganh_Web_Ver4.Controllers
             var list = db.Products.OrderByDescending(a => a.SellDate).ToList();
             return View(list.Take(4));
         }
+
+
     }
 }

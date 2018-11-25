@@ -17,8 +17,12 @@ namespace DoAnChuyenNganh_Web_Ver4.Models
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductType> ProductTypes { get; set; }
         public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<Coupon> Coupons { get; set; }
+        public DbSet<Event> Events { get; set; }
+        public DbSet<Banner> Banners { get; set; }
 
-        
+
     }
 }

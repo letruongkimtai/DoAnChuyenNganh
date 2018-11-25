@@ -11,13 +11,11 @@ namespace DoAnChuyenNganh_Web_Ver4.Models
     [Table("OrderDetails")]
     public class OrderDetail
     {
-        [Key]
-        [Column(Order = 1)]
+        [Key, Column(Order = 1)]
         public int OrderID { get; set; }
 
-        [Key]
-        [Column(Order = 2)]
-        public int PrID { get; set; }
+        [Key, Column(Order = 2)]
+        public int PrID { get; set; }   
 
         public int Quantity { get; set; }
 
@@ -27,6 +25,6 @@ namespace DoAnChuyenNganh_Web_Ver4.Models
         public virtual Order Orders { get; set; }
 
         [ForeignKey("PrID")]
-        public virtual Customer Customer { get; set; }
+        public virtual Product Products { get; set; }
     }
 }

@@ -1,0 +1,153 @@
+﻿<!--Customer Infomation Section-->
+@Html.Action("CustomerInfo","Order")
+<!--Payment Method Section-->
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">Phương thức thanh toán</a>
+        </h4>
+    </div>
+    <div id="collapseFour" class="panel-collapse collapse">
+        <div class="panel-body">
+            <div class="accordion-list-content" style="overflow: hidden; display: block;">
+                <p>
+                    Please select the preferred payment method to use on this order.
+                </p>
+                <label class="checkbox payment-method inline">
+                    <input type="checkbox" value="option1"> PayPal
+                </label>
+                <label class="checkbox payment-method inline">
+                    <input type="checkbox" value="option2"> Credit Card
+                </label>
+                <label class="checkbox payment-method inline">
+                    <input type="checkbox" value="option3"> Google Checkout
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--Payment section-->
+
+@using DoAnChuyenNganh_Web_Ver4.Models
+@model List<Cart>
+@{
+    ViewBag.Title = "CheckOut";
+    Layout = "~/Views/_LayoutPayment.cshtml";
+}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseSix">Xác nhận và thanh toán</a>
+        </h4>
+    </div>
+    <div>
+        <div class="col-md-12 checkout-cart">
+            <div class="sixteen columns">
+                <!-- Cart -->
+                <table class="table cart-table responsive-table">
+                    <tr>
+                        <th>
+
+                        </th>
+                        <th>
+                            TÊN MÓN
+                        </th>
+                        <th>
+                            GIÁ
+                        </th>
+                        <th>
+                            SỐ LƯỢNG
+                        </th>
+                        <th>
+                            ĐƠN GIÁ
+                        </th>
+                        <th>
+                        </th>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <!-- Item -->
+                        <tr>
+                            <td>
+                                <img src="images/@item.TempPic" alt="" />
+                            </td>
+                            <td class="cart-title">
+                                <a href="#">@item.TempName</a>
+                            </td>
+                            <td>
+                                @item.TempPrice
+                            </td>
+                            <td>
+                                <form action='#'>
+                                    <div class="qtyminus">
+                                    </div>
+                                    @item.TempAmount
+                                    <div class="qtyplus">
+                                    </div>
+                                </form>
+                            </td>
+                            <td class="cart-total">
+                                @item.TempTotal
+                            </td>
+                            >
+                        </tr>
+                    }
+                </table>
+            </div>
+            <div class="taxat">
+                <form action="#" method="get" class="apply-coupon">
+                    <input class="search-field" type="text" placeholder="Coupon Code" value="">
+
+                </form>
+
+                <div class="col-md-6 taxes nopadding">
+                    <!--Something here-->
+                </div>
+                <!-- Cart Totals -->
+                <div class="col-md-6 eight columns cart-totals">
+                    <table class="table cart-table test">
+                        <tbody>
+                            <tr>
+                                <th>
+                                    Tổng cộng
+                                </th>
+                                <td>
+                                    <strong>@ViewBag.CartTotal</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Phí vận chuyển
+                                </th>
+                                <td>
+                                    <strong>@ViewBag.Shipping</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Thời gian giao hàng
+                                </th>
+                                <td>
+                                    <strong>20 - 30 phút</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Thành tiền
+                                </th>
+                                <td>
+                                    <strong>@ViewBag.OrderTotal</strong>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                    <input class="calculate-shipping" type="submit" value="Đặt hàng" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
