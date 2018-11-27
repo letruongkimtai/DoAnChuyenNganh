@@ -64,6 +64,7 @@ namespace DoAnChuyenNganh_Web_Ver4.Controllers
             if (cus != null)
             {
                 Session["Customer"] = cus.UserName;
+                Session["CustomerObject"] = cus;
             }
            
 

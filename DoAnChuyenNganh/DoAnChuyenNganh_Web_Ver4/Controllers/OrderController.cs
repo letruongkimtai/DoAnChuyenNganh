@@ -101,14 +101,23 @@ namespace DoAnChuyenNganh_Web_Ver4.Controllers
         [HttpPost]
         public ActionResult CheckOut(FormCollection collection)
         {
+            if (Session["Customer"] == null || Session["Customer"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            if (Session["Cart"] == null)
+            {
+                return RedirectToAction("Error", "Partial");
+            }
             Order bill = new Order();
-            Customer customer = new Customer();
+            Customer customer = (Customer)Session["CustomerObject"];
             List<Cart> orders = GetList();
 
             bill.CtmID = customer.CtmID;
             bill.Odate = DateTime.Now;
             bill.DeliveryStatus = false;
             bill.PaymentCheck = false;
+
             db.Orders.Add(bill);
             db.SaveChanges();
 
@@ -185,7 +194,6 @@ namespace DoAnChuyenNganh_Web_Ver4.Controllers
             double total = Shipping() + CartTotal();
             return total;
         }
-
         public ActionResult AddToCart(int id, string URL)
         {
             List<Cart> orders = GetList();
@@ -230,8 +238,16 @@ namespace DoAnChuyenNganh_Web_Ver4.Controllers
             return RedirectToAction("Cart");
         }
 
+        public ActionResult DeleteCart(int id)
+        {
+            List<Cart> orders = GetList();
+            orders.Clear();
 
-        
+            return RedirectToAction("Index","Home");
+        }
+
+
+
 
     }
 }

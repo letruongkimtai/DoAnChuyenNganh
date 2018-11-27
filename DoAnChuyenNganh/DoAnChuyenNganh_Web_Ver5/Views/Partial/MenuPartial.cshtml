@@ -1,0 +1,7 @@
+﻿@model IEnumerable<DoAnChuyenNganh_Web_Ver5.Models.ProductType>
+
+@foreach (var item in Model)
+{
+    <li><a href="@Url.Action("Menu","Product",new { id = item.TypeID })">@item.TypeName</a></li>
+}
+
