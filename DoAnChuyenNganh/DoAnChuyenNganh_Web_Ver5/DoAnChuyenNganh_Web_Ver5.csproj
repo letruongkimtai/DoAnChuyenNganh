@@ -99,6 +99,7 @@
     <Content Include="css\flexslider.css" />
     <Content Include="css\font-awesome.css" />
     <Content Include="css\fonts\fontawesome-webfont.svg" />
+    <Content Include="css\Login.css" />
     <Content Include="css\product-slider.css" />
     <Content Include="css\responsive.css" />
     <Content Include="css\style.css" />
@@ -154,6 +155,7 @@
     <Content Include="index.html" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\Controller\CartController.js" />
     <Content Include="js\gmap3.min.js" />
     <Content Include="js\images\bg_play_pause.png" />
     <Content Include="js\jquery-1.11.0.min.js" />
@@ -169,6 +171,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PartialController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -181,7 +185,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Banner.cs" />
-    <Compile Include="Models\Cart.cs" />
+    <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\Coupon.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Event.cs" />
@@ -221,6 +225,10 @@
     <Content Include="Views\Partial\LoginWarning.cshtml" />
     <Content Include="Views\Partial\MenuPartial.cshtml" />
     <Content Include="Views\Product\Menu.cshtml" />
+    <Content Include="Views\Account\Signup.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Partial\CartPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

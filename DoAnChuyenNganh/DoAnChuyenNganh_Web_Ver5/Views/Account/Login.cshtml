@@ -1,0 +1,38 @@
+﻿<a onclick="document.getElementById('id01').style.display='block'" style="width:auto;">
+    Đăng nhập
+</a>
+
+<div id="id01" class="modal">
+    <form class="modal-content animate" action="@Url.Action("Login","Account")" method="post">
+        <h4 style="text-align:center;color:red">@ViewBag.Noti</h4>
+        <div class="lcontainer">
+
+            @Html.ValidationSummary(true) @ViewData["Error"]
+            <label for="uname"><b>Tên đăng nhập</b></label>
+            <input style="width: 100%;padding: 12px 20px;margin: 8px 0;display: inline-block;border: 1px solid #ccc;box-sizing: border-box;" type="text" placeholder="Enter Username" name="UserName" required value="tai">
+
+            <label for="psw"><b>Mật khẩu</b></label>
+            <input style="width: 100%;padding: 12px 20px;margin: 8px 0;display: inline-block;border: 1px solid #ccc;box-sizing: border-box;" type="password" placeholder="Enter Password" name="Passwords" value="1" required>
+
+            <input style=" background-color: #4CAF50;color: white;padding: 14px 20px;margin: 8px 0;border: none;cursor: pointer;width: 100%;opacity: 0.8;" value="Đăng nhập" type="submit" />
+
+        </div>
+
+        <div class="lcontainer" style="background-color:#f1f1f1">
+            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Hủy</button>
+            <span class="lpsw">Quên <a href="#">Mật khẩu ?</a></span>
+        </div>
+    </form>
+</div>
+
+<script>
+    // Get the modal
+    var modal = document.getElementById('id01');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>

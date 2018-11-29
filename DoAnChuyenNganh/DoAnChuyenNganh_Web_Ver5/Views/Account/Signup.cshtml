@@ -1,16 +1,14 @@
 ﻿
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Signup";
     Layout = "~/Views/_LayoutUser.cshtml";
 }
-
-
 
 <div class="page-title">
     <div class="container">
         <div class="row">
             <div class="col-md-10 produti">
-                <h4>products</h4>
+                <h4>SIGN UP</h4>
             </div>
             <div class="col-md-2 cart">
                 <h4><a href="#">chart (2 items)</a></h4>
@@ -23,117 +21,82 @@
     </div>
 </div>
 <!-- shop-page -->
-<div class="container content">
+<div class="container checking-area">
     <div class="row">
-        <div class="col-md-9 white-bg">
-            <!-- Single Product -->
-            <div class="single-product cold-md-12">
-                <div class="flexslider col-md-6">
-                    <img src="~/images/product-slide2.jpg" alt="" style="width: 424px; height:267.11px" />
-                </div>
-                <div class="product-details col-md-6">
-                    <h1>@Model.PrName</h1>
-                    <p class="price">
-                        @Model.Price
-                    </p>
-                    <span>$27.00</span>
-                    <p>
-                        @Model.Describe
-                    </p>
-                    <form action="#">
-                        <div class="qtyminus">
-                        </div>
-                        <input type="number" name="Quantity" value="1" class="qty">
-                        <div class="qtyplus">
-                        </div>
-                    </form>
-                    <a href="/themgiohang?id=@Model.PrID&quantity=1">Thêm vào giỏ hàng</a>
-                    <hr>
-                    <div class="availability">
-                        <p>
-                            Tình trạng
-                        </p>
-                        <span>@Model.Status</span>
-                    </div>
-                    <div class="reviews">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- End Single Product -->
-            </div>
-            <div class="col-md-12 tabs">
+        <div class="col-md-9 checkout-accordion">
+            <div class="col-md-12 white-bg">
                 <div class="bs-example">
-                    <div class="tabbable">
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a data-toggle="tab" href="#tab1" data-loading-text="Loading...">Section 1</a></li>
-                            <li><a data-toggle="tab" href="#tab2" data-loading-text="Loading...">Section 2</a></li>
-                            <li><a data-toggle="tab" href="#tab3" data-loading-text="Loading...">Section 3</a></li>
-                        </ul>
-                        <div class="tab-content">
-                            <div id="tab1" class="tab-pane active fade in">
-                                <p>
-                                    Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui. Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi.
-                                </p>
+                    <div class="panel-group" id="accordion">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Sign Up/a>
+                                </h4>
                             </div>
-                            <div id="tab2" class="tab-pane fade">
-                                <p>
-                                    Vestibulum nec erat eu nulla rhoncus fringilla ut non neque. Vivamus nibh urna, ornare id gravida ut, mollis a magna. Aliquam porttitor condimentum nisi, eu viverra ipsum porta ut. Nam hendrerit bibendum turpis, sed molestie mi fermentum id. Aenean volutpat velit sem. Sed consequat ante in rutrum convallis. Nunc facilisis leo at faucibus adipiscing. Duis auctor dictum erat hendrerit dapibus.
-                                </p>
-                            </div>
-                            <div id="tab3" class="tab-pane fade">
-                                <p>
-                                    WInteger convallis, nulla in sollicitudin placerat, ligula enim auctor lectus, in mollis diam dolor at lorem. Sed bibendum nibh sit amet dictum feugiat. Vivamus arcu sem, cursus a feugiat ut, iaculis at erat. Donec vehicula at ligula vitae venenatis. Sed nunc nulla, vehicula non porttitor in, pharetra et dolor. Fusce nec velit velit. Pellentesque consectetur eros nec interdum varius. Quisque at mi dolor.
-                                </p>
+                            <div>
+                                <div class="panel-body pb2">
+                                    <div class="accordion-list-content" style="overflow: hidden; display: block;">
+                                        @using (Html.BeginForm("Signup", "Account", FormMethod.Post))
+                                        {
+                                            @Html.ValidationSummary(true)
+
+                                            <div class="col-md-6 check-name">
+                                                <div>
+                                                    <form class="form-horizontal" role="form">
+                                                        <div class="form-group">
+                                                            <div class="col-sm-12">
+                                                                <input style="margin-bottom:10px" type="text" name="UserName" class="form-control" placeholder="Tên Đăng Nhập" required>
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-sm-12">
+                                                                <input style="margin-bottom:10px" type="password" name="Passwords" class="form-control" placeholder="Mật khẩu" required>
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-sm-12">
+                                                                <input style="margin-bottom:10px" type="text" name="CtmName" class="form-control" placeholder="Họ Tên" required>
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-sm-12">
+                                                                <input style="margin-bottom:10px" type="date" name="BDate" class="form-control" placeholder="Ngày Sinh">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-sm-12">
+                                                                <input style="margin-bottom:10px" type="text" name="Addr" class="form-control" placeholder="Địa Chỉ" required>
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-sm-12">
+                                                                <input style="margin-bottom:10px" type="tel" name="Tell" class="form-control" placeholder="Số Điện Thoại" required>
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-sm-12">
+                                                                <input style="margin-bottom:10px" type="email" name="Eaddr" class="form-control" placeholder="Địa Chỉ Email">
+
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                    <button style="float:left" type="submit" class="btn btn-default">Đăng ký</button>
+                                                </div>
+                                            </div>
+
+                                        }
+
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <!--articles-->
-            <div class="row articles">
-                <div class="col-md-4">
-                    <img src="images/product2.jpg" alt="">
-                    <div class="text">
-                        <a href="#">
-                            <span>
-                                worldwide shipping
-                            </span>
-                        </a>
-                        <p>
-                            $ 23.00
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <img src="images/product3.jpg" alt="">
-                    <div class="text">
-                        <a href="#">
-                            <span>
-                                worldwide shipping
-                            </span>
-                        </a>
-                        <p>
-                            $ 23.00
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <img src="images/product4.jpg" alt="">
-                    <div class="text">
-                        <a href="#">
-                            <span>
-                                worldwide shipping
-                            </span>
-                        </a>
-                        <p>
-                            $ 23.00
-                        </p>
+
+
                     </div>
                 </div>
             </div>
