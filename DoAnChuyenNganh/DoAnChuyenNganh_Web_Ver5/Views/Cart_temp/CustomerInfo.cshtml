@@ -1,0 +1,29 @@
+﻿
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <tr>
+        <th>
+            Người nhận
+        </th>
+        <td>
+            <strong>@ViewBag.Name</strong>
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Số điện thoại
+        </th>
+        <td>
+            <strong>@ViewBag.Tel</strong>
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Địa chỉ
+        </th>
+        <td>
+            <strong>@ViewBag.Addr</strong>
+        </td>
+    </tr>
+}

@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="~/css/responsive.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="~/css/Login.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/SearchBox.css" rel="stylesheet" type="text/css" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
@@ -30,7 +32,10 @@
                     <ul>
                         @if (Session["Customer"] != null)
                         {
-                            <li><a style="font-weight:bold;color:white;">@Session["Customer"].ToString()</a></li>
+                            <li>
+                                <a href="#" style="font-weight:bold;color:white;">@Session["Customer"].ToString()</a>
+                                <span style="font-weight:bold;color:white">||</span><a href="#">Đăng xuất</a>
+                            </li>
                         }
                         else
                         {
@@ -54,7 +59,8 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="@Url.Action("Index","Home")"><img src="~/images/logo.png" alt="logo"></a>
+                    <a class="navbar-brand" href="@Url.Action("Index","Home")"><img src="~/images/logo1.png" width="113" height="100"></a>
+
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -76,11 +82,9 @@
                         }
                         <li><a href="single.html">Khuyến mãi</a></li>
                         <li><a href="@Url.Action("Index","Cart")">Giỏ hàng</a></li>
-                        <li><a href="checkout.html">Checkout</a></li>
-                        <li><a href="about.html">About us</a></li>
-
                         <li><a href="contact.html">Liên hệ</a></li>
                     </ul>
+                    @Html.Action("Search", "Partial")
                 </div>
                 <!-- /.navbar-collapse -->
             </div>
@@ -93,7 +97,7 @@
     <!--prize-->
     <div class="prize">
         <div class="container">
-            <h1>win our special prize on our facebook page</h1>
+
         </div>
     </div>
     <!--end-prize-->
@@ -103,36 +107,42 @@
             <div class="container info">
                 <div class="row">
                     <div class="col-md-4 addres">
-                        <img src="images/footer-logo.png" alt="logo">
-                        <h6>Delicio Webshop,LLC</h6>
+                        <a class="navbar-brand" href="@Url.Action("Index","Home")">
+                            <img src="~/images/logo1.png" width="113" height="100">
+                        </a>
+
+                        <h6 style="font-size:20px;" >Double King Burger</h6>
                         <p>
-                            South Washington Street 828,Washington,USA
+                            130 Nguyễn Sơn Phường Bình Hưng Hòa Quận Tân Bình TP.HCM
                         </p>
                         <p>
-                            Phone 0123 456 789/0123 456 788
+                            Số điện thoại 1900-06-1106
                         </p>
                     </div>
                     <div class="col-md-2 account">
-                        <h4>my Account</h4>
+                        <h4>Khách hàng</h4>
                         <ul>
-                            <li><a href="#">cart</a></li>
-                            <li><a href="#">checkout</a></li>
-                            <li><a href="#">my accout</a></li>
+                            <li><a href="#">Giỏ hàng</a></li>
+                            <li><a href="#">Thanh toán</a></li>
+                            <li><a href="#">Tài khoản</a></li>
                         </ul>
                     </div>
                     <div class="col-md-2 assistance">
-                        <h4>Informations</h4>
+                        <h4>Thông tin</h4>
                         <ul>
-                            <li><a href="#">costumer assistance</a></li>
-                            <li><a href="#">delivery informations</a></li>
-                            <li><a href="#">international shipping</a></li>
+                            <li><a href="#">Chăm sóc khách hàng</a></li>
+                            <li><a href="#">Chính sách đặt hàng</a></li>
+                            <li><a href="#">Khuyến mãi</a></li>
                         </ul>
                     </div>
                     <div class="col-md-4 about">
-                        <h4>about us</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet,consectetur adipiscing elit. in non vestibulum massa,sit amet bibendum eros. in accumsan dignissin.lorem ipsum dolor sit amet vestibulum massa,sit amet bibendum eros. in accumsan dignissin.lorem ipsum dolor sit amet
-                        </p>
+                        <h4>Đăng ký nhân thông tin khuyến mãi</h4>
+                        <input type="email" name="Email" placeholder="Nhập email của bạn" style="padding: 5px 4px 4px 6px; border-radius: 3px; border-style: none;" />
+                        <button type="submit" style="padding: 8px 8px 7px 6px;border-radius: 3px;background: #ffffff;border-style: none;font-weight: 600;">Đăng ký</button>
+                        <div style="background-image:url(../../images/facebook.png);height:160px;width:400px;margin-top:20px"
+                             class="fb-like" data-href="https://www.facebook.com/Double-King-Burger-246945036058041"
+                             data-layout="button" data-action="like" data-size="small" data-show-faces="true" data-share="true">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -142,15 +152,15 @@
             <div class="row bottom-strip">
                 <div class="col-md-6 rights">
                     <p>
-                        Delicio Webshop-Responsive themeforest theme 2014
+                        Doubleking.Corp 2018
                     </p>
                 </div>
                 <div class="col-md-6 social">
                     <ul>
-                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="#"><i class="fa fa-asterisk"></i></a></li>
-                        <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+                        <li><a href="#"><i class="fa fa-dribbble" style="color:white"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram" style="color:white"></i></a></li>
+                        <li><a href="#"><i class="fa fa-asterisk" style="color:white"></i></a></li>
+                        <li><a href="#"><i class="fa fa-facebook-square" style="color:white"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -180,6 +190,15 @@
             });
         })(jQuery);
     </script>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
     @RenderSection("jsFooter", required: false)
 </body>
 </html>

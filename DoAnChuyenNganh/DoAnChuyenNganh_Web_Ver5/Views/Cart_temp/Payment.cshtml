@@ -1,0 +1,254 @@
+﻿@model List<DoAnChuyenNganh_Web_Ver5.Models.CartItem>
+@{
+    ViewBag.Title = "Thanh toán";
+    Layout = "~/Views/_LayoutUser.cshtml";
+}
+
+<div class="container checking-area">
+    <div class="row">
+        <div class="col-md-9 cart-area">
+            <div class="sixteen columns cart-section oflow">
+                <!-- Cart -->
+                <table class="table cart-table responsive-table">
+                    <tr>
+                        <th>
+                        </th>
+                        <th>
+                            Tên sản phẩm
+                        </th>
+                        <th>
+                            Đơn giá
+                        </th>
+                        <th>
+                            Số lượng
+                        </th>
+                        <th>
+                            Tổng cộng
+                        </th>
+                        <th>
+
+                        </th>
+                        <th>
+                        </th>
+                    </tr>
+                    <!-- Item #1 -->
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td></td>
+                            <td class="cart-title">
+                                <a href="@Url.Action("Product","Detail",new {id=item.product.PrID})">@item.product.PrName</a>
+                            </td>
+                            <td>
+                                @item.product.Price.ToString("N0")
+                            </td>
+                            <td>
+                                <form action='#'>
+                                    <div class="qtyminus">
+                                    </div>
+                                    <input data-id="@item.product.PrID" type='text' name="quantity" value='@item.Quantity' class="txtQuantity" />
+                                    <div class="qtyplus">
+                                    </div>
+                                </form>
+                            </td>
+                            <td class="cart-total">
+                                @((item.product.Price * item.Quantity).ToString("N0"))
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+            @if (Session["Customer"] != null)
+            {
+                <div class="panel panel-default" style="margin-top:30px;">
+
+                    <div id="collapseTwo" class="panel-collapse in" style="height: auto;">
+                        <div class="panel-body pb2">
+                            <div class="accordion-list-content" style="overflow: hidden; display: block;">
+                                @using (Html.BeginForm("Payment", "Cart", FormMethod.Post))
+                                {
+                                    <div class="col-md-6 check-name">
+                                        <div>
+                                            <form class="form-horizontal" role="form">
+                                                <div class="form-group">
+                                                    <div class="col-sm-12">
+                                                        <input type="text" class="form-control" placeholder="Họ tên người nhận" required>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-sm-12">
+                                                        <input type="tel" class="form-control" placeholder="Số điện thoại" required>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-sm-12">
+                                                        <input type="text" class="form-control" placeholder="Địa chỉ" required>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-sm-12">
+                                                        <input type="email" class="form-control" placeholder="Email" required>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                }
+
+                                <div class="col-md-6 check-name">
+                                    <img src="~/images/Signup.jpg" style="margin-left:50px;margin-top:35px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="taxat" style="margin-top:10px;">
+                    <div class="col-md-6 taxes nopadding" style="margin-top:60px;margin-bottom:-50px;">
+                        <img src="~/images/delivery.png" height="400" />
+                    </div>
+                    <!-- Cart Totals -->
+                    <div class="col-md-6 eight columns cart-totals" style="margin-top:0px;">
+                        <table class="table cart-table test">
+                            <tbody>
+
+                                <tr>
+                                    <th>
+                                        Thành tiền
+                                    </th>
+                                    <td>
+                                        <strong>100</strong>
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <th>
+                                        Phí vận chuyển
+                                    </th>
+
+                                    <td>
+                                        Free Shipping
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <th>
+                                        Giảm giá
+                                    </th>
+
+                                    <td>
+                                        Free
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <th>
+                                        Tổng cộng
+                                    </th>
+
+                                    <td>
+
+                                        <strong>$178.00</strong>
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                        <br>
+
+                        <button style="float:right" id="btnPayment" class="btn">Xác nhận và thanh toán</button>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="taxat" style="margin-top:10px;">
+                    @using (Html.BeginForm("Payment", "Cart", FormMethod.Post))
+                    {
+                        <div class="col-md-6 check-name">
+                            <div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <input type="text" name="CtmName" class="form-control" placeholder="Họ tên người nhận" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <input type="tel" name="Tel" class="form-control" placeholder="Số điện thoại" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <input type="text" name="Addr" class="form-control" placeholder="Địa chỉ" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <input type="email" name="Eaddr" class="form-control" placeholder="Email" required>
+                                        </div>
+                                    </div>  
+                            </div>
+                        </div>
+                    }
+                    <button style="float:right" id="btnPayment" class="btn">Xác nhận và thanh toán</button>
+                    <!-- Cart Totals -->
+                    <div class="col-md-6 eight columns cart-totals" style="margin-top:0px;">
+                        <table class="table cart-table test">
+                            <tbody>
+
+                                <tr>
+                                    <th>
+                                        Thành tiền
+                                    </th>
+                                    <td>
+                                        <strong>100</strong>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        Phí vận chuyển
+                                    </th>
+                                    <td>
+                                        Free Shipping
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        Giảm giá
+                                    </th>
+                                    <td>
+                                        Free
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        Tổng cộng
+                                    </th>
+                                    <td>
+                                        <strong>$178.00</strong>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br>
+                    </div>
+                </div>
+            }
+
+
+            <!-- Start -->
+            <!-- end -->
+        </div>
+    </div>
+</div>

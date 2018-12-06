@@ -27,6 +27,8 @@ namespace DoAnChuyenNganh_Web_Ver5.Models
 
         public string Describe { get; set; }
 
+        public int BeenBought { get; set; }
+
 
         public int TypeID { get; set; }
         public virtual ProductType ProductTypes { get; set; }

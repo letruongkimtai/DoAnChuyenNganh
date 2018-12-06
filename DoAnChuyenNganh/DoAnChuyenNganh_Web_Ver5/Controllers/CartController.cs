@@ -10,72 +10,198 @@ namespace DoAnChuyenNganh_Web_Ver5.Controllers
     public class CartController : Controller
     {
         WebsiteDbContext db = new WebsiteDbContext();
-        private const string CartSession = "CartSession";//Khai báo hằng chứa key session
-        // GET: Cart
+        //Hàm lấy danh sách các item trong cart
+        public List<Cart> GetList()
+        {
+            List<Cart> orders = Session["Cart"] as List<Cart>;//khai báo đối orders = session cart 
+            if (orders == null) //nếu order rỗng
+            {
+                orders = new List<Cart>();//gán biến orders = list các item
+                Session["Cart"] = orders;//gán session bằng biến orders
+            }
+
+            return orders;
+        }
 
         public ActionResult Index()
         {
-            var cart = Session[CartSession];
-            var list = new List<CartItem>();
-            if(cart != null)
+            List<Cart> orders = GetList();
+            if (orders.Count == 0)
             {
-                list = (List<CartItem>)cart;
-            }
-
-            return View(list);
-        }
-
-        //Thêm sản phẩm vào giỏ hàng
-        public ActionResult AddItem(int id, int quantity)    //Hàm Thêm item có tham số mã sp và số lượng
-        {
-
-            var product = ViewDetail(id);
-            var cart = Session[CartSession];    //Khai báo session
-            if (cart != null)
+                return RedirectToAction("EmptyCart", "Cart");
+            }//gọi list
+            ViewBag.CartTotal = CartTotal();
+            /*ViewBag.Shipping = Shipping();
+            if (CartTotal() <= OrderTotal())
             {
-                var list = (List<CartItem>)cart; //tạo list ép kiểu list<cartitem> cho biến cart
-
-                //nếu cart có tồn tại item với id = prid thì tăng quantity lên 
-                if (list.Exists(x => x.product.PrID == id))
-                {
-                    foreach (var item in list)  
-                    {
-                        if (item.product.PrID == id)
-                        {
-                            item.Quantity += quantity;
-                        }
-                    }
-                }
-                else
-                {
-                    //Tạo mới đối tượng cart item
-                    var item = new CartItem();  //Tạo đối tượng item với class cartitem
-                    item.product = product;  //Khai báo biến id truyên vào = PrID trong CartItem
-                    item.Quantity = quantity;  //Khai báo biến quantity truyên vào = Quantity trong CartItem
-                    list.Add(item);
-
-                }
-
+                ViewBag.Discount = 0;
             }
             else
             {
-                //Tạo mới đối tượng cart item
-                var item = new CartItem();  //Tạo đối tượng item với class cartitem
-                item.product = product;  //Khai báo biến id truyên vào = PrID trong CartItem
-                item.Quantity = quantity;  //Khai báo biến quantity truyên vào = Quantity trong CartItem
-                var list = new List<CartItem>();
-                list.Add(item);
+                ViewBag.Discount = CartTotal() - OrderTotal();
+            }
+            ViewBag.OrderTotal = OrderTotal();*/
 
-                //Gán vào session
-                Session[CartSession] = list;
+
+            return View(orders);//trả về view chứa list 
+        }
+
+        public ActionResult CartPartial()
+        {
+
+            ViewBag.Amount = Amount();
+            return PartialView();
+        }
+
+        //Hàm đém số lượng item
+        private int Amount()
+        {
+            int Amt = 0; //gán số lượng = 0
+            List<Cart> orders = Session["Cart"] as List<Cart>;//lấy danh sách item
+            if (orders != null)//nếu danh sách ko rỗng
+            {
+                Amt = orders.Sum(n => n.TempAmount);// số lượng item = tổng của số lượng item
+            }
+            return Amt;
+        }
+        //Hàm tính tiền tạm tính
+        private double CartTotal()
+        {
+            double Ttal = 0; //gán tiền =0
+            List<Cart> orders = Session["Cart"] as List<Cart>;// lấy danh sách
+            if (orders != null)
+            {
+                Ttal = orders.Sum(n => n.TempTotal);//nếu list ko rỗng thì cộng tất cả giá tiền lại
+            }
+            return Ttal;
+        }
+        //Hàm tính phí vận chuyển
+        private double Shipping()
+        {
+            double Ship;
+            if (Amount() < 5)
+            {
+                Ship = 15000;
+            }
+            else
+            {
+                Ship = 0;
+            }
+            return Ship;
+        }
+        //Hàm tính tổng đơn hàng
+        private double OrderTotal()
+        {
+            double total = Shipping() + CartTotal();
+            return total;
+        }
+
+        public ActionResult AddToCart(int id, string URL)
+        {
+            List<Cart> orders = GetList();//gọi list
+
+            Cart product = orders.Find(n => n.TempID == id);
+            if (product == null)
+            {
+                product = new Cart(id);
+                orders.Add(product);
+                return Redirect(URL);
+            }
+            else
+            {
+                product.TempAmount++;
+                return Redirect(URL);
+            }
+        }
+
+        public ActionResult DeleteItem(int itemId)
+        {
+            List<Cart> orders = GetList();//Lấy danh sách
+            Cart product = orders.SingleOrDefault(n => n.TempID == itemId);//chọn sản phẩm có id = itemId
+            orders.RemoveAll(n => n.TempID == itemId);//Xóa item đã chọn
+
+            return RedirectToAction("Index");//trả về view cart
+        }
+
+        public ActionResult UpdateCart(int itemId, FormCollection form)
+        {
+            List<Cart> order = GetList();//lấy danh sách
+            Cart product = order.SingleOrDefault(n => n.TempID == itemId);//lấy sản phẩm có id = id của item chọn để update
+            product.TempAmount = int.Parse(form["Quantity"].ToString());//gán lại số lượng
+
+            return RedirectToAction("Index");//refresh trang
+        }
+
+        public ActionResult DeleteCart()
+        {
+            List<Cart> orders = GetList();
+            orders.Clear();
+
+            return RedirectToAction("EmptyCart", "Cart");
+        }
+
+        public ActionResult EmptyCart()
+        {
+            return View();
+        }
+
+
+        /*-------------------------------Payment Section-------------------------------*/
+
+        [HttpGet]
+        public ActionResult CheckOut()
+        {
+            if (Session["Customer"] == null || Session["Customer"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            List<Cart> orders = GetList();
+            ViewBag.CartTotal = CartTotal();
+            ViewBag.Shipping = Shipping();
+            ViewBag.OrderTotal = OrderTotal();
+
+            return View(orders);
+        }
+        [HttpPost]
+        public ActionResult CheckOut(FormCollection collection)
+        {
+            if (Session["Customer"] == null || Session["Customer"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Account");
             }
 
-            return RedirectToAction("Index");
+            Order bill = new Order();
+            Customer customer = (Customer)Session["CustomerObject"];
+            List<Cart> orders = GetList();
+
+            bill.CtmID = customer.CtmID;
+            bill.Odate = DateTime.Now;
+            bill.DeliveryStatus = false;
+            bill.PaymentCheck = false;
+            db.Orders.Add(bill);
+            db.SaveChanges();
+
+            foreach (var item in orders)
+            {
+                int id = item.TempID;
+                Product product = db.Products.SingleOrDefault(n => n.PrID == id);
+                OrderDetail orderDetail = new OrderDetail();
+                orderDetail.OrderID = bill.OrderID;
+                orderDetail.PrID = item.TempID;
+                orderDetail.Quantity = item.TempAmount;
+                orderDetail.Total = (decimal)item.TempTotal;
+                db.OrderDetails.Add(orderDetail);
+                product.BeenBought=product.BeenBought + item.TempAmount;
+            }
+            db.SaveChanges();
+            Session["Cart"] = null;
+            return RedirectToAction("Confirm", "Cart");
         }
 
-        public Product ViewDetail(int id)
+        public ActionResult Confirm()
         {
-            return db.Products.Find(id);
+            return View();
         }
+
     }
 }

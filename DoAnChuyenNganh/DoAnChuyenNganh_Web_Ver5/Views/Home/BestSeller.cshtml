@@ -1,0 +1,23 @@
+﻿@model IEnumerable<DoAnChuyenNganh_Web_Ver5.Models.Product>
+
+
+<div class="container">
+    <div class="row articles">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3 col-sm-6">
+                <img src="~/images/@item.Pic" alt="img">
+                <div class="text">
+                    <a>
+                        <span>
+                            @item.PrName
+                        </span>
+                    </a>
+                    <p>
+                        @item.Price.ToString("N0")
+                    </p>
+                </div>
+            </div>
+        }
+    </div>
+</div>

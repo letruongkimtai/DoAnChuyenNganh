@@ -8,10 +8,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10 produti">
-                <h4>Menu</h4>
             </div>
             <div class="col-md-2 cart">
-                <h4><a href="#">chart (2 items)</a></h4>
+                @Html.Action("CartPartial", "Cart")
             </div>
         </div>
     </div>
@@ -45,9 +44,9 @@
                                 </span>
                             </a>
                             <p>
-                                đ @item.Price
+                                 @item.Price.ToString("N0")
                             </p>
-                            <a type="submit" style="border-style: outset; padding: 5px 7px 5px 7px; background-color:saddlebrown;color: white;" href="@Url.Action("AddToCart","Order",new {id = item.PrID,URL=Request.Url.ToString()})">ORDER</a>
+                            <a href="@Url.Action("AddToCart","Cart",new {id = item.PrID,URL=Request.Url.ToString()})">Đặt món</a>
                         </div>
                     </div>
                 }

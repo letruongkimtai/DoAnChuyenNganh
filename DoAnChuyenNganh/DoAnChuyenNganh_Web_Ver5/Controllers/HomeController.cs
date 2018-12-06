@@ -17,5 +17,11 @@ namespace DoAnChuyenNganh_Web_Ver5.Controllers
             return View(list.Take(4));
         }
 
+        public ActionResult BestSeller()
+        {
+            var list = db.Products.OrderByDescending(a => a.BeenBought).ToList();
+            return PartialView(list.Take(4));
+        }
+
     }
 }

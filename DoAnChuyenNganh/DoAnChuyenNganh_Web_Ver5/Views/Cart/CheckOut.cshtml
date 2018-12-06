@@ -1,0 +1,163 @@
+﻿@using DoAnChuyenNganh_Web_Ver5.Models
+@model List<Cart>
+
+@{
+    ViewBag.Title = "CheckOut";
+    Layout = "~/Views/_LayoutUser.cshtml";
+}
+
+<div class="container checking-area">
+    <div class="row">
+        <div class="col-md-9 cart-area">
+            <div class="sixteen columns cart-section oflow">
+                <!-- Cart -->
+                <table class="table cart-table responsive-table">
+                    <tr>
+                        <th>
+                        </th>
+                        <th>
+                            Tên sản phẩm
+                        </th>
+                        <th>
+                            Đơn giá
+                        </th>
+                        <th>
+                            Số lượng
+                        </th>
+                        <th>
+                            Tổng cộng
+                        </th>
+                        <th>
+
+                        </th>
+                        <th>
+                        </th>
+                    </tr>
+                    <!-- Item #1 -->
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td></td>
+                            <td class="cart-title">
+                                <a href="@Url.Action("Product","Detail",new {id=item.TempID})">@item.TempName</a>
+                            </td>
+                            <td>
+                                @item.TempPrice.ToString("N0")
+                            </td>
+                            <td>
+                                <form action='#'>
+                                    <div class="qtyminus">
+                                    </div>
+                                    @item.TempAmount
+                                    <div class="qtyplus">
+                                    </div>
+                                </form>
+                            </td>
+                            <td class="cart-total">
+                                @item.TempTotal
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+            <div class="panel panel-default" style="margin-top:30px;">
+                <div id="collapseTwo" class="panel-collapse in" style="height: auto;">
+                    <div class="panel-body pb2">
+                        <div class="accordion-list-content" style="overflow: hidden; display: block;">
+
+                            <div class="col-md-6 check-name">
+                                <div>
+
+
+                                </div>
+                            </div>
+                            <div class="col-md-6 check-name">
+                                <img src="~/images/Signup.jpg" style="margin-left:50px;margin-top:10px;" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="taxat" style="margin-top:10px;">
+                <!-- Cart Totals -->
+                <div class="col-md-6 taxes nopadding" style="margin-top:-30px;margin-bottom:-50px;">
+                    <img src="~/images/delivery.png" height="400" />
+                </div>
+                <div class="col-md-6 eight columns cart-totals" style="margin-top:0px;">
+                    <table class="table cart-table test">
+                        <tbody>
+                            <tr>
+                                <th>
+                                    Tạm tính
+                                </th>
+                                <td>
+                                    <strong>@ViewBag.CartTotal</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Phí vận chuyển
+                                </th>
+                                <td>
+                                    @ViewBag.Shipping
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Thời gian giao hàng
+                                </th>
+                                <td>
+                                    20-30 phút
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Giảm giá
+                                </th>
+                                <td>
+                                    0 đ
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Thành tiền
+                                </th>
+                                <td>
+                                    <strong>@ViewBag.OrderTotal</strong>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                </div>
+            </div>
+            <!-- Start -->
+            <!-- end -->
+        </div>
+        @{
+            Customer ctm = (Customer)Session["CustomerObject"];
+        }
+        <div class="col-md-3 shop-sidebar">
+            <div class="sidebar-widgets">
+                <div class="shop-widget">
+                    <h4>Thông tin đặt hàng</h4>
+                    @using (Html.BeginForm())
+                    {
+                    <div class="category-shop-list">
+                        @Html.ValidationSummary(true)
+                        <br />
+                        <p><strong>Họ tên: </strong>@ctm.CtmName</p><br />
+                        <p><strong>Địa chỉ: </strong>@ctm.Addr</p><br />
+                        <p><strong>Ngày đặt: </strong>@DateTime.Now.ToShortDateString()</p><br />
+                        <p><strong>Điện thoại: </strong>@ctm.Tell</p>
+                        <hr />
+                        <p><strong>Tổng cộng: </strong>@ViewBag.OrderTotal</p><br />
+                        <input type="submit" style="background-color:lightgray" class="btn btn-default" value="Xác nhận và thanh toán" />
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

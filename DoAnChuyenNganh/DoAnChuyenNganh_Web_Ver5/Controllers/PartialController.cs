@@ -21,24 +21,22 @@ namespace DoAnChuyenNganh_Web_Ver5.Controllers
             return PartialView(db.ProductTypes);
         }
 
-        public ActionResult Confirm()
-        {
-            return View();
-        }
-
-        public ActionResult Error()
-        {
-            return View();
-        }
-
-        public ActionResult LoginWarning()
+        public ActionResult Search()
         {
             return PartialView();
         }
-
-        public ActionResult BestSell()
+        public ActionResult SearchResult(FormCollection formCollection)
         {
-            return PartialView();
+            string value = formCollection["Search"];
+            var result = db.Products.Where(x => x.PrName.Contains(value)).ToList();
+
+            return View(result);
+        }
+
+        public ActionResult BannerPartial()
+        {
+            var list = db.Banners.OrderByDescending(a => a.RelsDay).ToList();
+            return PartialView(list.Take(1));
         }
     }
 }

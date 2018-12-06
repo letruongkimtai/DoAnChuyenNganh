@@ -1,131 +1,116 @@
-﻿
+﻿@model List<DoAnChuyenNganh_Web_Ver5.Models.CartItem>
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Index";
     Layout = "~/Views/_LayoutUser.cshtml";
 }
 
-
-
+@section jsFooter{
+    <script src="/js/Controller/CartController.js"></script>
+}
 <div class="page-title">
     <div class="container">
         <div class="row">
             <div class="col-md-10 produti">
+                <h4>CHECKOUT</h4>
             </div>
             <div class="col-md-2 cart">
-                @Html.Action("CartPartial", "Cart")
+                @{ Html.RenderAction("CartPartial", "Cart");}
+                
             </div>
         </div>
     </div>
 </div>
 <!-- shop-page -->
-<div class="container content">
+<div class="container checking-area">
     <div class="row">
-        <div class="col-md-9 white-bg">
-            <!-- Single Product -->
-            <div class="single-product cold-md-12">
-                <div class="flexslider col-md-6">
-                    <img src="~/images/product-slide2.jpg" alt="" style="width: 424px; height:267.11px" />
+        @if ()
+        {
+            <div class="col-md-9 cart-area">
+                <div class="sixteen columns cart-section oflow">
+                    <!-- Cart -->
+                    <table class="table cart-table responsive-table">
+                        <tr>
+                            <th>
+                            </th>
+                            <th>
+                                Tên sản phẩm
+                            </th>
+                            <th>
+                                Đơn giá
+                            </th>
+                            <th>
+                                Số lượng
+                            </th>
+                            <th>
+                                Tổng cộng
+                            </th>
+                            <th>
+
+                            </th>
+                            <th>
+                            </th>
+                        </tr>
+                        <!-- Item #1 -->
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td></td>
+                                <td class="cart-title">
+                                    <a href="@Url.Action("Details","Product",new { id = item.product.PrID})">@item.product.PrName</a>
+                                </td>
+                                <td>
+                                    @item.product.Price.ToString("N0")
+                                </td>
+                                <td>
+                                    <form action='#'>
+                                        <div class="qtyminus">
+                                        </div>
+                                        <input data-id="@item.product.PrID" type='text' name="quantity" value='@item.Quantity' class="txtQuantity" />
+                                        <div class="qtyplus">
+                                        </div>
+                                    </form>
+                                </td>
+                                <td class="cart-total">
+                                    @((item.product.Price * item.Quantity).ToString("N0"))
+                                </td>
+                                <td>
+                                    <a href="@Url.Action("DeleteEachProduct","Cart")" class="btn-delete" data-id="@item.product.PrID"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
                 </div>
-                <div class="product-details col-md-6">
-                    <h1>@Model.PrName</h1>
-                    <p class="price">
-                        @Model.Price.ToString("N0")
-                    </p>
-                    <span>$27.00</span>
-                    <p>
-                        @Model.Describe
-                    </p>
-                    <a href="@Url.Action("AddToCart","Cart",new {id = Model.PrID,URL=Request.Url.ToString()})">Thêm vào giỏ hàng</a>
-                    <hr>
-                    <div class="availability">
-                        <p>
-                            Tình trạng
-                        </p>
-                        <span>@Model.Status</span>
+                <div class="taxat">
+                    <form action="#" method="get" class="apply-coupon" style="float:right">
+                        <input class="search-field" type="text" placeholder="Coupon Code" value="">
+                        <a href="#" class="coupon-btn checkout-btn">Apply Coupon</a>
+                    </form>
+                    <div class="cart-buttons">
+                        <a href="@Url.Action("DeleteAllProduct","Cart")" id="btnDeleteAll" class="btn btn-danger">Hủy đơn hàng</a>
+                        <button id="btnContinue" class="btn">Tiếp tục mua hàng</button>
+                        <button id="btnUpdate" class="btn">Cập nhật giỏ hàng</button>
+                        <button id="btnPayment" class="btn">Thanh toán</button>
                     </div>
-                    <div class="reviews">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                        </ul>
-                    </div>
+                  
+                    <!-- Cart Totals -->
+                    
                 </div>
-                <!-- End Single Product -->
+                <!-- Start -->
+                <!-- end -->
             </div>
-            <div class="col-md-12 tabs">
-                <div class="bs-example">
-                    <div class="tabbable">
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a data-toggle="tab" href="#tab1" data-loading-text="Loading...">Section 1</a></li>
-                            <li><a data-toggle="tab" href="#tab2" data-loading-text="Loading...">Section 2</a></li>
-                            <li><a data-toggle="tab" href="#tab3" data-loading-text="Loading...">Section 3</a></li>
-                        </ul>
-                        <div class="tab-content">
-                            <div id="tab1" class="tab-pane active fade in">
-                                <p>
-                                    Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui. Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi.
-                                </p>
-                            </div>
-                            <div id="tab2" class="tab-pane fade">
-                                <p>
-                                    Vestibulum nec erat eu nulla rhoncus fringilla ut non neque. Vivamus nibh urna, ornare id gravida ut, mollis a magna. Aliquam porttitor condimentum nisi, eu viverra ipsum porta ut. Nam hendrerit bibendum turpis, sed molestie mi fermentum id. Aenean volutpat velit sem. Sed consequat ante in rutrum convallis. Nunc facilisis leo at faucibus adipiscing. Duis auctor dictum erat hendrerit dapibus.
-                                </p>
-                            </div>
-                            <div id="tab3" class="tab-pane fade">
-                                <p>
-                                    WInteger convallis, nulla in sollicitudin placerat, ligula enim auctor lectus, in mollis diam dolor at lorem. Sed bibendum nibh sit amet dictum feugiat. Vivamus arcu sem, cursus a feugiat ut, iaculis at erat. Donec vehicula at ligula vitae venenatis. Sed nunc nulla, vehicula non porttitor in, pharetra et dolor. Fusce nec velit velit. Pellentesque consectetur eros nec interdum varius. Quisque at mi dolor.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--articles-->
-            <div class="row articles">
-                <div class="col-md-4">
-                    <img src="images/product2.jpg" alt="">
-                    <div class="text">
-                        <a href="#">
-                            <span>
-                                worldwide shipping
-                            </span>
-                        </a>
-                        <p>
-                            $ 23.00
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <img src="images/product3.jpg" alt="">
-                    <div class="text">
-                        <a href="#">
-                            <span>
-                                worldwide shipping
-                            </span>
-                        </a>
-                        <p>
-                            $ 23.00
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <img src="images/product4.jpg" alt="">
-                    <div class="text">
-                        <a href="#">
-                            <span>
-                                worldwide shipping
-                            </span>
-                        </a>
-                        <p>
-                            $ 23.00
-                        </p>
-                    </div>
+        }
+        else
+        {
+            <div class="col-md-9 cart-area">
+                <div class="sixteen columns cart-section oflow">
+                    <span class="alert alert-danger">Không có sản phẩm nào trong giỏ hàng</span>
                 </div>
             </div>
-        </div>
+
+        }
+
+        <!-- Sidebar -->
         <div class="col-md-3 shop-sidebar">
             <div class="sidebar-widgets">
                 <div class="shop-widget">

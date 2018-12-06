@@ -20,6 +20,16 @@ namespace DoAnChuyenNganh_Web_Ver5
           );
 
             routes.MapRoute(
+             name: "Cart",
+             url: "gio-hang",
+             defaults: new { controller = "Cart", action = "Index", id = UrlParameter.Optional }
+         );
+            routes.MapRoute(
+              name: "Payment",
+              url: "thanh-toan",
+              defaults: new { controller = "Cart", action = "Payment", id = UrlParameter.Optional }
+          );
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

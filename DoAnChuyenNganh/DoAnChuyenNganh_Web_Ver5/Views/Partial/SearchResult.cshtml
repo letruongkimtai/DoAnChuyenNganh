@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "SearchResult";
+    Layout = "~/Views/_LayoutUser.cshtml";
+}
+<div class="container">
+    <div class="row content">
+        <div class="col-md-9 shop-section">
+            <!--articles-->
+            <div class="row articles">
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-4 col-sm-6">
+                        <img src="images/@item.Pic" alt="">
+                        <div class="text">
+                            <a href="@Url.Action("Details","Product",new { id = item.PrID})">
+                                <span>
+                                    @item.PrName
+                                </span>
+                            </a>
+                            <p>
+                                @item.Price
+                            </p>
+                            <a type="submit" style="border-style: outset; padding: 5px 7px 5px 7px; background-color:saddlebrown;color: white;" href="/themgiohang?id=@item.PrID&quantity=1">ORDER</a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

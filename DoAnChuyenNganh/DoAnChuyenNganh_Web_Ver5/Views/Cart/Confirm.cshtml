@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Confirm";
+    Layout = "~/Views/_LayoutUser.cshtml";
+}
+
+<div class="page-title">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 produti">
+            </div>
+            <div class="col-md-2 cart">
+                @Html.Action("CartPartial", "Cart")
+            </div>
+        </div>
+    </div>
+</div>
+<!-- shop-page -->
+<div class="container checking-area">
+    <div class="row">
+        <div class="col-md-9 cart-area">
+            <div class="sixteen columns cart-section oflow">
+                <span class="alert alert-success">Đơn hàng của quý khách đã được chúng tôi ghi nhận - Cảm ơn quý khách đã sử dụng dịch vụ</span>
+            </div>
+        </div>
+        <!-- Sidebar -->
+    </div>
+</div>
+

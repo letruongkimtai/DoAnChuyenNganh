@@ -105,10 +105,6 @@ namespace DoAnChuyenNganh_Web_Ver4.Controllers
             {
                 return RedirectToAction("Login", "Account");
             }
-            if (Session["Cart"] == null)
-            {
-                return RedirectToAction("Error", "Partial");
-            }
             Order bill = new Order();
             Customer customer = (Customer)Session["CustomerObject"];
             List<Cart> orders = GetList();
@@ -243,7 +239,7 @@ namespace DoAnChuyenNganh_Web_Ver4.Controllers
             List<Cart> orders = GetList();
             orders.Clear();
 
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("EmptyCart","Home");
         }
 
 
