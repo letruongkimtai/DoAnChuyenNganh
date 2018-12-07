@@ -1,0 +1,45 @@
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<DoAnChuyenNganh_Web_Ver5.Models.Event>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_LayoutUser.cshtml";
+}
+<div class="container content">
+    <div class="row">
+        <div class="col-md-9 white-bg">
+            <div class="col-md-12 latest">
+                <ul class="pagination-list pull-right">
+                    @Html.PagedListPager(Model, pageNumber => Url.Action("Index", new { page = pageNumber }))
+                </ul>
+            </div>
+            <!-- Single Product -->
+            @foreach (var item in Model)
+    {
+        <div class="single-product cold-md-12">
+            <div class="flexslider col-md-6">
+                <img src="~/images/@item.EventImg" alt="" style="width: 424px; height:267.11px" />
+            </div>
+            <div class="product-details col-md-6">
+                <h1>@item.EventTitle</h1>
+                <p class="price" style="font-weight:lighter;font-size:15px;">
+                    @item.StartDay.ToShortDateString()
+                </p><br />
+                <div style="margin-top:20px;">
+                    <text class="price">
+                        @item.Content.Substring(0, 200)
+                    </text>
+                </div>
+                <hr>
+                <div class="availability">
+                    <a style="float:right" href="@Url.Action("Post","Event",new {id = item.EventID })">Xem thêm..</a>
+                </div>
+            </div>
+            <!-- End Single Product -->
+        </div>
+}
+            <!--articles-->
+            <div class="col-md-3 shop-sidebar">
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Post";
+    Layout = "~/Views/_LayoutUser.cshtml";
+}
+
+<div class="container checking-area">
+    <div class="row">
+        <div class="col-md-9 checkout-accordion">
+            <div class="col-md-12 white-bg">
+                <div class="bs-example">
+                    <div class="panel-group">
+                        <div class="panel panel-default">
+                            <div>
+                                <div class="panel-body pb2">
+                                    <div class="accordion-list-content" style="overflow: hidden; display: block;">
+                                        <img width="840" height="330" src="~/images/@Model.EventImg" />
+                                        <h1 style="text-align:left;margin-top:30px;font-weight:bold;font-size:32px;">
+                                            @Model.EventTitle
+                                        </h1>
+
+                                        <div>
+                                            <div class="col-sm-12" style="margin-top:15px;margin-bottom:25px;">
+                                                <text style="font-weight:lighter;font-size:20px;">@Model.StartDay.ToShortDateString()</text><br />
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <text style="font-weight:lighter;font-size:20px;line-height:35px;">@Model.Content</text><br />
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

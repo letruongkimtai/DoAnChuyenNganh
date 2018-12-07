@@ -22,7 +22,6 @@ namespace DoAnChuyenNganh_Web_Ver5.Models
         public DbSet<Coupon> Coupons { get; set; }
         public DbSet<Event> Events { get; set; }
         public DbSet<Banner> Banners { get; set; }
-
-
+        public DbSet<EventEmail> EventEmails { get; set; }
     }
 }

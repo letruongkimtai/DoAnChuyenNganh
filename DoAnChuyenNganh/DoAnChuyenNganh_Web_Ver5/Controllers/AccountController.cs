@@ -43,7 +43,7 @@ namespace DoAnChuyenNganh_Web_Ver5.Controllers
             db.SaveChanges();
 
             return RedirectToAction("Index", "Home");
-           
+
         }
 
         /*---------------------------------------Login----------------------------------------------*/
@@ -66,13 +66,20 @@ namespace DoAnChuyenNganh_Web_Ver5.Controllers
                 Session["Customer"] = cus.UserName;
                 Session["CustomerObject"] = cus;
             }
-           
+
 
             return RedirectToAction("Index", "Home");
         }
+        public ActionResult LogOut()
+        {
+            Session["Customer"] = null;
+            return PartialView();
+        }
 
-
-
-
+        /*Account Detail*/
+        public ActionResult AccountDetail()
+        {
+            return View();
+        }
     }
 }

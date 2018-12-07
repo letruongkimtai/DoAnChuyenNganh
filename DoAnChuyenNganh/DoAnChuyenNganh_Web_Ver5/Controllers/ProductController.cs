@@ -1,5 +1,6 @@
 ﻿
 using DoAnChuyenNganh_Web_Ver5.Models;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,7 @@ using System.Web.Mvc;
 
 namespace DoAnChuyenNganh_Web_Ver5.Controllers
 {
+
     public class ProductController : Controller
     {
         WebsiteDbContext db = new WebsiteDbContext();
@@ -28,15 +30,22 @@ namespace DoAnChuyenNganh_Web_Ver5.Controllers
 
         public ActionResult Menu(int id)
         {
-
-            if (id == 6)
-                 return View(db.Products);
-             else
-             {
                  var item = from s in db.Products where s.TypeID == id select s;
                  return View(item);
-             }
+        }
 
+        public ActionResult ShowAllProduct(int? page)
+        {
+            int pageSize = 9; //Số mục hiện trên 1 trang
+            int pageNumber = (page ?? 1); //Mặc định vào sẽ ở trang 1
+            var allProduct = db.Products.OrderByDescending(a => a.PrName).ToList();
+            return View(allProduct.ToPagedList(pageNumber, pageSize));
+        }
+
+        public ActionResult AlsoWant()
+        {
+            
+            return PartialView();
         }
     }
 }

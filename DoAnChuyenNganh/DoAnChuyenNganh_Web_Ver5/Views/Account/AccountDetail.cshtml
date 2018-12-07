@@ -1,0 +1,72 @@
+﻿@using DoAnChuyenNganh_Web_Ver5.Models
+@{
+    ViewBag.Title = "AccountDetail";
+    Layout = "~/Views/_LayoutUser.cshtml";
+    Customer ctm = (Customer)Session["CustomerObject"];
+}
+
+<div class="container checking-area">
+    <div class="row">
+        <div class="col-md-9 checkout-accordion">
+            <div class="col-md-12 white-bg">
+                <div class="bs-example">
+                    <div class="panel-group">
+                        <div class="panel panel-default">
+                            <div>
+                                <div class="panel-body pb2">
+                                    <div class="accordion-list-content" style="overflow: hidden; display: block;">
+                                        <h1 style="text-align:center;margin-top:30px;font-weight:bold;font-size:32px;">
+                                            THÔNG TIN KHÁCH HÀNG
+                                        </h1>
+                                        <div class="col-md-6 check-name">
+                                            <div>
+                                                <div class="col-sm-12" style="margin-top:40px">
+                                                    <p style="font-weight:bold;font-size:22px;">
+                                                        Họ tên:
+                                                        <text style="font-weight:lighter;font-size:20px;">@ctm.CtmName</text>
+                                                    </p><br />
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <p style="font-weight:bold;font-size:22px;">
+                                                        Ngày sinh:
+                                                        <text style="font-weight:lighter;font-size:20px;">@ctm.BDate.ToShortDateString()</text>
+                                                    </p><br />
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <p style="font-weight:bold;font-size:22px;">
+                                                        Địa chỉ:
+                                                        <text style="font-weight:lighter;font-size:20px;">@ctm.Addr</text>
+                                                    </p><br />
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <p style="font-weight:bold;font-size:22px;">
+                                                        Số điện thoại:
+                                                        <text style="font-weight:lighter;font-size:20px;">@ctm.Tell</text>
+                                                    </p><br />
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <p style="font-weight:bold;font-size:22px;">
+                                                        Email:
+                                                        <text style="font-weight:lighter;font-size:20px;">@ctm.Eaddr</text>
+                                                    </p><br />
+                                                </div>
+                                            </div>
+                                            <button class="btn btn-default" style="background-color:lightgray;">@Html.ActionLink("Chỉnh sửa", "EditProfile")</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 check-name">
+                                        <div>
+                                            <a href="#">Xem lịch sử mua hàng</a>
+                                            <a href="#">Đổi mật khẩu</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

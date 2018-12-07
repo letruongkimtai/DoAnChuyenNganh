@@ -54,3 +54,8 @@ C:\Users\kimta\Desktop\DoAnChuyenNganh\DoAnChuyenNganh\DoAnChuyenNganh_Web_Ver5\
 C:\Users\kimta\Desktop\DoAnChuyenNganh\DoAnChuyenNganh\DoAnChuyenNganh_Web_Ver5\obj\Debug\DoAnChuyenNganh_Web_Ver5.Migrations.Init_Database.resources
 C:\Users\kimta\Desktop\DoAnChuyenNganh\DoAnChuyenNganh\DoAnChuyenNganh_Web_Ver5\obj\Debug\DoAnChuyenNganh_Web_Ver5.csproj.GenerateResource.cache
 C:\Users\kimta\Desktop\DoAnChuyenNganh\DoAnChuyenNganh\DoAnChuyenNganh_Web_Ver5\obj\Debug\DoAnChuyenNganh_Web_Ver5.Migrations.addBoughtElement.resources
+C:\Users\kimta\Desktop\DoAnChuyenNganh\DoAnChuyenNganh\DoAnChuyenNganh_Web_Ver5\bin\PagedList.dll
+C:\Users\kimta\Desktop\DoAnChuyenNganh\DoAnChuyenNganh\DoAnChuyenNganh_Web_Ver5\bin\PagedList.Mvc.dll
+C:\Users\kimta\Desktop\DoAnChuyenNganh\DoAnChuyenNganh\DoAnChuyenNganh_Web_Ver5\bin\PagedList.xml
+C:\Users\kimta\Desktop\DoAnChuyenNganh\DoAnChuyenNganh\DoAnChuyenNganh_Web_Ver5\bin\PagedList.Mvc.xml
+C:\Users\kimta\Desktop\DoAnChuyenNganh\DoAnChuyenNganh\DoAnChuyenNganh_Web_Ver5\obj\Debug\DoAnChuyenNganh_Web_Ver5.Migrations.EventEmail.resources
