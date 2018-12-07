@@ -27,7 +27,7 @@ namespace DoAnChuyenNganh_Web_Ver5.Controllers
                         select s;
                 return View(p.Single());
         }
-
+/*
         [HttpGet]
         public ActionResult EmailBox()
         {
@@ -44,6 +44,6 @@ namespace DoAnChuyenNganh_Web_Ver5.Controllers
             db.SaveChanges();
 
             return RedirectToAction("Confirm", "Cart");
-        }
+        }*/
     }
 }
