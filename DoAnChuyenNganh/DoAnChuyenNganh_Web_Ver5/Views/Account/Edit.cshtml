@@ -1,16 +1,9 @@
 ﻿
 @{
-    ViewBag.Title = "Signup";
+    ViewBag.Title = "Edit";
     Layout = "~/Views/_LayoutUser.cshtml";
 }
 
-<div class="page-title">
-    <div class="container">
-        <div class="row">
-        </div>
-    </div>
-</div>
-<!-- shop-page -->
 <div class="container checking-area">
     <div class="row">
         <div class="col-md-9 checkout-accordion">
@@ -21,7 +14,7 @@
                             <div>
                                 <div class="panel-body pb2">
                                     <div class="accordion-list-content" style="overflow: hidden; display: block;">
-                                        @using (Html.BeginForm("Signup", "Account", FormMethod.Post))
+                                        @using (Html.BeginForm("Edit", "Account", FormMethod.Post))
                                         {
                                             @Html.ValidationSummary(true)
 
@@ -30,25 +23,7 @@
                                                     <form class="form-horizontal" role="form">
                                                         <div class="form-group">
                                                             <div class="col-sm-12">
-                                                                <input style="margin-bottom:10px" type="text" name="UserName" class="form-control" placeholder="Tên Đăng Nhập" required>
-
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <div class="col-sm-12">
-                                                                <input style="margin-bottom:10px" type="password" name="Passwords" class="form-control" placeholder="Mật khẩu" required>
-
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <div class="col-sm-12">
                                                                 <input style="margin-bottom:10px" type="text" name="CtmName" class="form-control" placeholder="Họ Tên" required>
-
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <div class="col-sm-12">
-                                                                <input style="margin-bottom:10px" type="date" name="BDate" class="form-control" placeholder="Ngày Sinh">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
@@ -60,7 +35,6 @@
                                                         <div class="form-group">
                                                             <div class="col-sm-12">
                                                                 <input style="margin-bottom:10px" type="tel" name="Tell" class="form-control" placeholder="Số Điện Thoại" required>
-
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
@@ -70,10 +44,9 @@
                                                             </div>
                                                         </div>
                                                     </form>
-                                                    <button style="float:left;margin-left:245px;" type="submit" class="btn btn-default">Đăng ký</button>
+                                                    <button style="float:left;margin-left:245px;" type="submit" class="btn btn-default">Lưu</button>
                                                 </div>
                                             </div>
-
                                         }
                                         <div class="col-md-6 check-name">
                                             <img src="~/images/Signup.jpg" width="367" style="margin-top:70px;" />
@@ -83,15 +56,10 @@
                             </div>
                         </div>
 
-
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-3 shop-sidebar">
-            @Html.Action("BannerPartial", "Partial")
-        </div>
     </div>
 </div>
-
 

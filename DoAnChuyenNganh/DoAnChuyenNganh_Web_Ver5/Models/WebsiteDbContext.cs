@@ -23,5 +23,7 @@ namespace DoAnChuyenNganh_Web_Ver5.Models
         public DbSet<Event> Events { get; set; }
         public DbSet<Banner> Banners { get; set; }
         public DbSet<EventEmail> EventEmails { get; set; }
+        public DbSet<FeedBack> FeedBacks { get; set; }
+        public DbSet<Admin> Admins { get; set; }
     }
 }

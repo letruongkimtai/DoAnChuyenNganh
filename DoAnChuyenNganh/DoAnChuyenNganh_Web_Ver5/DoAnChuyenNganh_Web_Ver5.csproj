@@ -121,6 +121,7 @@
     <Content Include="fonts\webfonts\geo-semibold\svg\style_169898.svg" />
     <Content Include="Global.asax" />
     <Content Include="images\banner1.gif" />
+    <Content Include="images\bannerdoc.jpg" />
     <Content Include="images\BannerTitle.png" />
     <Content Include="images\BestSeller.png" />
     <Content Include="images\client1.png" />
@@ -130,6 +131,7 @@
     <Content Include="images\delivery.png" />
     <Content Include="images\facebook.png" />
     <Content Include="images\footer-logo.png" />
+    <Content Include="images\info.png" />
     <Content Include="images\logo1.png" />
     <Content Include="images\member1.jpg" />
     <Content Include="images\member2.jpg" />
@@ -210,13 +212,23 @@
     <Compile Include="Migrations\201812071102437_EventEmail.Designer.cs">
       <DependentUpon>201812071102437_EventEmail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812091645089_Feedback.cs" />
+    <Compile Include="Migrations\201812091645089_Feedback.Designer.cs">
+      <DependentUpon>201812091645089_Feedback.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812101616093_Admin.cs" />
+    <Compile Include="Migrations\201812101616093_Admin.Designer.cs">
+      <DependentUpon>201812101616093_Admin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Banner.cs" />
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Coupon.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\EventEmail.cs" />
+    <Compile Include="Models\FeedBack.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\Product.cs" />
@@ -275,6 +287,10 @@
     <Content Include="Views\Event\Index.cshtml" />
     <Content Include="Views\Event\Post.cshtml" />
     <Content Include="Views\Event\EmailBox.cshtml" />
+    <Content Include="Views\Product\AlsoWant.cshtml" />
+    <Content Include="Views\Home\EventLink.cshtml" />
+    <Content Include="Views\Account\OrderList.cshtml" />
+    <Content Include="Views\Account\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -294,6 +310,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812071102437_EventEmail.resx">
       <DependentUpon>201812071102437_EventEmail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812091645089_Feedback.resx">
+      <DependentUpon>201812091645089_Feedback.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812101616093_Admin.resx">
+      <DependentUpon>201812101616093_Admin.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

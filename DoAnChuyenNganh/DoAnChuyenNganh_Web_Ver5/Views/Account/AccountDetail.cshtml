@@ -51,13 +51,13 @@
                                                     </p><br />
                                                 </div>
                                             </div>
-                                            <button class="btn btn-default" style="background-color:lightgray;">@Html.ActionLink("Chỉnh sửa", "EditProfile")</button>
                                         </div>
                                     </div>
                                     <div class="col-md-6 check-name">
-                                        <div>
-                                            <a href="#">Xem lịch sử mua hàng</a>
+                                        <div style="font-size:30px;">
+                                            <a href="@Url.Action("OrderList","Account")">Xem lịch sử đặt hàng</a>
                                             <a href="#">Đổi mật khẩu</a>
+                                            <a href="@Url.Action("Edit","Account")">Chỉnh sửa thông tin</a>
                                         </div>
                                     </div>
                                 </div>

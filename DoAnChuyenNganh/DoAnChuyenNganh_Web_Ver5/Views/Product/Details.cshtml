@@ -29,55 +29,42 @@
                 <div class="product-details col-md-6">
                     <h1>@Model.PrName</h1>
                     <p class="price">
-                        @Model.Price.ToString("N0")
+                        @Model.Price.ToString("N0")đ
                     </p>
-                    <span>$27.00</span>
                     <p>
                         @Model.Describe
                     </p>
-                    <a href="@Url.Action("AddToCart","Cart",new {id = Model.PrID,URL=Request.Url.ToString()})">Thêm vào giỏ hàng</a>
+                    <a style="margin-left:0px;" href="@Url.Action("AddToCart","Cart",new {id = Model.PrID,URL=Request.Url.ToString()})">
+                        Thêm vào giỏ hàng
+                    </a>
                     <hr>
                     <div class="availability">
-                        <p>
-                            Tình trạng
+                        <p style="font-size:20px;">
+                            @Model.Status
                         </p>
-                        <span>@Model.Status</span>
-                    </div>
-                    <div class="reviews">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                        </ul>
+
                     </div>
                 </div>
                 <!-- End Single Product -->
             </div>
             <div class="col-md-12 tabs">
+                <h1 style="font-size=20px;">Đánh giá</h1>
                 <div class="bs-example">
                     <div class="tabbable">
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a data-toggle="tab" href="#tab1" data-loading-text="Loading...">Section 1</a></li>
-                            <li><a data-toggle="tab" href="#tab2" data-loading-text="Loading...">Section 2</a></li>
-                            <li><a data-toggle="tab" href="#tab3" data-loading-text="Loading...">Section 3</a></li>
-                        </ul>
                         <div class="tab-content">
-                            <div id="tab1" class="tab-pane active fade in">
-                                <p>
-                                    Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui. Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi.
+                            <div>
+                                <p style="font-size:18px"> User <span style="margin-left:30px;">Đánh giá: 5 sao</span></p>
+                                <p style="font-size:16px;margin-top:15px;">
+                                    Dở tệ
                                 </p>
+                                <hr />
                             </div>
-                            <div id="tab2" class="tab-pane fade">
-                                <p>
-                                    Vestibulum nec erat eu nulla rhoncus fringilla ut non neque. Vivamus nibh urna, ornare id gravida ut, mollis a magna. Aliquam porttitor condimentum nisi, eu viverra ipsum porta ut. Nam hendrerit bibendum turpis, sed molestie mi fermentum id. Aenean volutpat velit sem. Sed consequat ante in rutrum convallis. Nunc facilisis leo at faucibus adipiscing. Duis auctor dictum erat hendrerit dapibus.
-                                </p>
-                            </div>
-                            <div id="tab3" class="tab-pane fade">
-                                <p>
-                                    WInteger convallis, nulla in sollicitudin placerat, ligula enim auctor lectus, in mollis diam dolor at lorem. Sed bibendum nibh sit amet dictum feugiat. Vivamus arcu sem, cursus a feugiat ut, iaculis at erat. Donec vehicula at ligula vitae venenatis. Sed nunc nulla, vehicula non porttitor in, pharetra et dolor. Fusce nec velit velit. Pellentesque consectetur eros nec interdum varius. Quisque at mi dolor.
-                                </p>
+                            <div>
+                                <h4 style="margin-bottom:10px;">Bình luận</h4>
+                                <input type="text" style="width:680px;height:70px;border-radius:5px;" />
+                                <button style="float:right;margin-top:35px;margin-right:-15px;" class="btn btn-default" type="submit">
+                                    Bình luận
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -85,151 +72,11 @@
             </div>
             <!--articles-->
             <div class="row articles">
-                <div class="col-md-4">
-                    <img src="images/product2.jpg" alt="">
-                    <div class="text">
-                        <a href="#">
-                            <span>
-                                worldwide shipping
-                            </span>
-                        </a>
-                        <p>
-                            $ 23.00
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <img src="images/product3.jpg" alt="">
-                    <div class="text">
-                        <a href="#">
-                            <span>
-                                worldwide shipping
-                            </span>
-                        </a>
-                        <p>
-                            $ 23.00
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <img src="images/product4.jpg" alt="">
-                    <div class="text">
-                        <a href="#">
-                            <span>
-                                worldwide shipping
-                            </span>
-                        </a>
-                        <p>
-                            $ 23.00
-                        </p>
-                    </div>
-                </div>
+             @Html.Action("AlsoWant","Product")
             </div>
         </div>
         <div class="col-md-3 shop-sidebar">
-            <div class="sidebar-widgets">
-                <div class="shop-widget">
-                    <h4>Categories</h4>
-                    <ul class="category-shop-list">
-                        <li>
-                            <a class="accordion-link" href="#">Watches <span>(4)</span></a>
-                            <ul class="accordion-list-content">
-                                <li><a href="#">Jackets <span>(7)</span></a></li>
-                                <li><a href="#">Electronics <span>(10)</span></a></li>
-                                <li><a href="#">Sports <span>(12)</span></a></li>
-                                <li><a href="#">Garden <span>(2)</span></a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a class="accordion-link" href="#">Jewellery <span>(8)</span></a>
-                            <ul class="accordion-list-content">
-                                <li><a href="#">Jackets <span>(7)</span></a></li>
-                                <li><a href="#">Electronics <span>(10)</span></a></li>
-                                <li><a href="#">Sports <span>(12)</span></a></li>
-                                <li><a href="#">Garden <span>(2)</span></a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a class="accordion-link" href="#">Technology <span>(6)</span></a>
-                            <ul class="accordion-list-content">
-                                <li><a href="#">Jackets <span>(7)</span></a></li>
-                                <li><a href="#">Electronics <span>(10)</span></a></li>
-                                <li><a href="#">Sports <span>(12)</span></a></li>
-                                <li><a href="#">Garden <span>(2)</span></a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a class="accordion-link" href="#">Kids <span>(5)</span></a>
-                            <ul class="accordion-list-content">
-                                <li><a href="#">Jackets <span>(7)</span></a></li>
-                                <li><a href="#">Electronics <span>(10)</span></a></li>
-                                <li><a href="#">Sports <span>(12)</span></a></li>
-                                <li><a href="#">Garden <span>(2)</span></a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a class="accordion-link" href="#">Electronics <span>(4)</span></a>
-                            <ul class="accordion-list-content">
-                                <li><a href="#">Jackets <span>(7)</span></a></li>
-                                <li><a href="#">Electronics <span>(10)</span></a></li>
-                                <li><a href="#">Sports <span>(12)</span></a></li>
-                                <li><a href="#">Garden <span>(2)</span></a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a class="accordion-link" href="#">Sports <span>(5)</span></a>
-                            <ul class="accordion-list-content">
-                                <li><a href="#">Jackets <span>(7)</span></a></li>
-                                <li><a href="#">Electronics <span>(10)</span></a></li>
-                                <li><a href="#">Sports <span>(12)</span></a></li>
-                                <li><a href="#">Garden <span>(2)</span></a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a class="accordion-link" href="#">Bicycles <span>(7)</span></a>
-                            <ul class="accordion-list-content">
-                                <li><a href="#">Jackets <span>(7)</span></a></li>
-                                <li><a href="#">Electronics <span>(10)</span></a></li>
-                                <li><a href="#">Sports <span>(12)</span></a></li>
-                                <li><a href="#">Garden <span>(2)</span></a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                <div class="shop-widget">
-                    <h4>Popular Products</h4>
-                    <ul class="popular-product">
-                        <li>
-                            <img alt="" src="images/product.png">
-                            <div>
-                                <h6><a href="#">Iphone 5 black</a></h6>
-                                <span>$766.00</span>
-                            </div>
-                        </li>
-                        <li>
-                            <img alt="" src="images/product2.png">
-                            <div>
-                                <h6><a href="#">Samasung Galaxy note 3</a></h6>
-                                <span>$555.00</span>
-                            </div>
-                        </li>
-                        <li>
-                            <img alt="" src="images/product3.png">
-                            <div>
-                                <h6><a href="#">Iphone 5 black</a></h6>
-                                <span>$766.00</span>
-                            </div>
-                        </li>
-                        <li>
-                            <img alt="" src="images/product4.png">
-                            <div>
-                                <h6><a href="#">Samasung Galaxy note 3</a></h6>
-                                <span>$555.00</span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            @Html.Action("BannerPartial", "Partial")
         </div>
     </div>
 </div>

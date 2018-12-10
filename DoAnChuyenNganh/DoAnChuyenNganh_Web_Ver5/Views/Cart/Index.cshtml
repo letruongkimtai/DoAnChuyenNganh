@@ -21,93 +21,86 @@
 <!-- shop-page -->
 <div class="container checking-area">
     <div class="row">
-            <div class="col-md-9 cart-area">
-                <div class="sixteen columns cart-section oflow">
-                    <!-- Cart -->
-                    <table class="table cart-table responsive-table">
+        <div class="col-md-9 cart-area">
+            <div class="sixteen columns cart-section oflow">
+                <!-- Cart -->
+                <table class="table cart-table responsive-table">
+                    <tr>
+                        <th>
+                        </th>
+                        <th>
+                            Tên sản phẩm
+                        </th>
+                        <th>
+                            Đơn giá
+                        </th>
+                        <th>
+                            Số lượng
+                        </th>
+                        <th>
+                            Tổng cộng
+                        </th>
+                        <th>
+                        </th>
+                        <th>
+                    </tr>
+                    <!-- Item #1 -->
+                    @foreach (var item in Model)
+                    {
                         <tr>
-                            <th>
-                            </th>
-                            <th>
-                                Tên sản phẩm
-                            </th>
-                            <th>
-                                Đơn giá
-                            </th>
-                            <th>
-                                Số lượng
-                            </th>
-                            <th>
-                                Tổng cộng
-                            </th>
-                            <th>
-                            </th>
-                            <th>
-                        </tr>
-                        <!-- Item #1 -->
-                        @foreach (var item in Model)
-                        {
-                            <tr>
-                                <td></td>
-                                <td class="cart-title">
-                                    <a href="@Url.Action("Details","Product",new { id = item.TempID})">@item.TempName</a>
+                            <td></td>
+                            <td class="cart-title">
+                                <a href="@Url.Action("Details","Product",new { id = item.TempID})">@item.TempName</a>
+                            </td>
+                            <td>
+                                @item.TempPrice.ToString("N0")
+                            </td>
+                            @using (Html.BeginForm("UpdateCart", "Cart", new { itemId = item.TempID }))
+                            {
+                                <td>
+                                    <input type='text' name="Quantity" value='@item.TempAmount' class="qty" />
+                                </td>
+                                <td class="cart-total">
+                                    @ViewBag.CartTotal.ToString("N0")
                                 </td>
                                 <td>
-                                    @item.TempPrice.ToString("N0")
+                                    @Html.ActionLink("X", "DeleteItem", new { itemId = item.TempID })
                                 </td>
-                                @using (Html.BeginForm("UpdateCart", "Cart", new { itemId = item.TempID }))
-                                {
-                                    <td>
-                                        <input type='text' name="Quantity" value='@item.TempAmount' class="qty" />
-                                    </td>
-                                    <td class="cart-total">
-                                        @ViewBag.CartTotal.ToString("N0")
-                                    </td>
-                                    <td>
-                                        @Html.ActionLink("X", "DeleteItem", new { itemId = item.TempID })
-                                    </td>
-                                    <td>
-                                        <button type="submit" style="background:white;border:none">
-                                            <i class="fa fa-refresh" aria-hidden="true"></i>
-                                        </button>
-                                    </td>
-                                }
-                            </tr>
-                        }
-                            <tr>
-                                <td></td>
-                                <td class="cart-title"></td>
-                                <td></td>
-                                <td></td>
-                                <td class="cart-total"><p><span>Tạm tính:</span> @ViewBag.CartTotal.ToString("N0")</p></td>
-                                <td>@Html.ActionLink("Hủy đơn hàng", "DeleteCart")</td>
-                            </tr>
-                    </table>
-                </div>
-                <div class="taxat">
-                    <form action="#" method="get" class="apply-coupon">
-                        <input class="search-field" type="text" placeholder="Coupon Code" value="">
-                        <a href="#" class="coupon-btn checkout-btn">Apply Coupon</a>
-                    </form>
-                    <div class="cart-buttons" style="margin-top:3px;">
-
-                        <a href="@Url.Action("CheckOut","Cart")" class="calculate-shipping">Thanh toán</a>
-                    </div>
-                    <!-- Cart Totals -->
-                </div>
-                <!-- Start -->
-                <!-- end -->
+                                <td>
+                                    <button type="submit" style="background:white;border:none">
+                                        <i class="fa fa-refresh" aria-hidden="true"></i>
+                                    </button>
+                                </td>
+                            }
+                        </tr>
+                    }
+                    <tr>
+                        <td></td>
+                        <td class="cart-title"></td>
+                        <td></td>
+                        <td></td>
+                        <td class="cart-total"><p><span>Tạm tính:</span> @ViewBag.CartTotal.ToString("N0")</p></td>
+                        <td>@Html.ActionLink("Hủy đơn hàng", "DeleteCart")</td>
+                    </tr>
+                </table>
             </div>
+            <div class="taxat">
+                <form action="#" method="get" class="apply-coupon">
+                    <input class="search-field" type="text" placeholder="Coupon Code" value="">
+                    <a href="#" class="coupon-btn checkout-btn">Apply Coupon</a>
+                </form>
+                <div class="cart-buttons" style="margin-top:3px;">
+
+                    <a href="@Url.Action("CheckOut","Cart")" class="calculate-shipping">Thanh toán</a>
+                </div>
+                <!-- Cart Totals -->
+            </div>
+            <!-- Start -->
+            <!-- end -->
+        </div>
         <!-- Sidebar -->
         <div class="col-md-3 shop-sidebar">
-            <div class="sidebar-widgets">
-                <div class="shop-widget">
-                    <h4>Thông tin đặt hàng</h4>
-                    <div class="category-shop-list">
-                            <span></span>
-                    </div>
-                </div>
-            </div>
+            @Html.Action("BannerPartial", "Partial")
         </div>
     </div>
 </div>

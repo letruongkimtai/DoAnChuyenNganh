@@ -65,6 +65,7 @@ namespace DoAnChuyenNganh_Web_Ver5.Controllers
             {
                 Session["Customer"] = cus.UserName;
                 Session["CustomerObject"] = cus;
+                Session["CustomerID"] = cus.CtmID;
             }
 
 
@@ -81,5 +82,33 @@ namespace DoAnChuyenNganh_Web_Ver5.Controllers
         {
             return View();
         }
+
+        public ActionResult OrderList()
+        {
+            int ctmId = (int)Session["CustomerID"];
+            var order = db.Orders.Where(n => n.CtmID == ctmId);
+            return View(order);
+        }
+
+        [HttpGet]
+        public ActionResult Edit()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Edit(FormCollection collection)
+        {
+            int id = (int)Session["CustomerID"];
+            Customer cus = db.Customers.Find(id);
+
+            cus.CtmName = collection["CtmName"];
+            cus.Addr = collection["Addr"];
+            cus.Tell = collection["Tell"];
+            cus.Eaddr = collection["Eaddr"];
+            db.SaveChanges();
+            return RedirectToAction("AccountDetail", "Account");
+        }
     }
+
 }

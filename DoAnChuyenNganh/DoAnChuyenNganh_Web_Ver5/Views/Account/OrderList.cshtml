@@ -1,0 +1,64 @@
+﻿@model IEnumerable<DoAnChuyenNganh_Web_Ver5.Models.Order>
+@{
+    ViewBag.Title = "OrderList";
+    Layout = "~/Views/_LayoutUser.cshtml";
+    ViewBag.Paid = "Đã thanh toán";
+    ViewBag.Debt = "Chưa thanh toán";
+}
+<div class="page-title">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 produti">
+            </div>
+            <div class="col-md-2 cart">
+                @Html.Action("CartPartial", "Cart")
+            </div>
+        </div>
+    </div>
+</div>
+<!-- shop-page -->
+<div class="container content">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-9 white-bg" style="margin-bottom:20px;">
+                <!-- Single Product -->
+                <div class="col-md-12 tabs">
+                    <div class="bs-example">
+                        <div class="tabbable">
+                            <div class="tab-content">
+                                <div>
+                                    <p style="font-size:18px">
+                                        Mã đơn hàng: @item.OrderID
+                                        <span style="margin-left:400px;color:red">
+                                            @{ if (item.PaymentCheck == false)
+                                                {
+                                                    @ViewBag.Debt
+                                                }
+                                                else
+                                                {
+                                                    @ViewBag.Paid
+                                                }
+                                            }
+                                        </span>
+                                    </p>
+                                    <hr />
+                                    <p style="font-size:16px;margin-top:15px;">
+                                        Ngày đặt: @item.Odate.ToShortDateString()
+                                        <a href="#">
+                                            <span style="margin-left:400px;">Chi tiết</span>
+                                        </a>
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--articles-->
+            </div>
+        }
+    </div>
+</div>
+
+

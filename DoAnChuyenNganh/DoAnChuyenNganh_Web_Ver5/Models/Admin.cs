@@ -7,17 +7,13 @@ using System.Web;
 
 namespace DoAnChuyenNganh_Web_Ver5.Models
 {
-    [Table("Banners")]
-    public class Banner
+    [Table("Admins")]
+    public class Admin
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int BnID { get; set; }
+        public int AdmID { get; set; }
 
-        public string BnImg { get; set; }
-
-        public DateTime RelsDay { get; set; }
-
-        public string URL { get; set; }
+        public int AdmName { get; set; }
     }
 }

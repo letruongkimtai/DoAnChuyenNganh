@@ -546,7 +546,7 @@ a {
 
     .navbar-default .navbar-nav > li > a:hover {
         color: #fff !important;
-        background: #7f574c !important;
+        background: #bf1e2d !important;
     }
 
 .navbar-nav > li > a {
@@ -1525,7 +1525,7 @@ ul.product-list {
         font-weight: bold;
         -webkit-font-smoothing: antialiased;
         padding: 16px 21px;
-        background: #5a423b;
+        background: #bf1e2d;
         -webkit-border-radius: 3px;
         -moz-border-radius: 3px;
         border-radius: 3px;
@@ -2462,7 +2462,7 @@ table.cart-table {
         vertical-align: top;
         font-size: 11px;
         font-weight: 600;
-        background: #5a423b;
+        background: #bf1e2d;
         text-transform: uppercase;
         padding: 20px 20px;
     }
@@ -2519,9 +2519,9 @@ table.cart-table.bottom {
 
 .cart-totals .cart-table th {
     vertical-align: middle;
-    border-bottom: 1px solid #4a3631;
+    border-bottom: 1px solid #a01024;
     padding: 15px 0px 15px 20px;
-    background: #5a423b !important;
+    background: #bf1e2d !important;
 }
 
 .cart-totals .cart-table td {
@@ -2713,7 +2713,7 @@ div.container.checking-area > div > div.col-md-9.method-right > div > div > ul >
     .cart-buttons a {
         padding: 14px 20px;
         color: #fff;
-        background: #382925;
+        background: #bf1e2d;
         -webkit-border-radius: 3px;
         -moz-border-radius: 3px;
         border-radius: 3px;
@@ -2762,7 +2762,7 @@ body > div.container.checking-area > div > div.col-md-9.method-right > form > a 
 
 .coupon-btn {
     float: left;
-    background: #5a423b;
+    background: #bf1e2d;
     padding: 16px 20px;
     color: #fff !important;
     -webkit-border-radius: 3px;

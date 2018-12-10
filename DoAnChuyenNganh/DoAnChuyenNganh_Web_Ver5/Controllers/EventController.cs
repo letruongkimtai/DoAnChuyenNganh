@@ -22,28 +22,11 @@ namespace DoAnChuyenNganh_Web_Ver5.Controllers
 
         public ActionResult Post(int id)
         {
-                var p = from s in db.Events
-                        where id == s.EventID
-                        select s;
-                return View(p.Single());
-        }
-/*
-        [HttpGet]
-        public ActionResult EmailBox()
-        {
-            return PartialView();
+            var p = from s in db.Events
+                    where id == s.EventID
+                    select s;
+            return View(p.Single());
         }
 
-        [HttpPost]
-        public ActionResult EmailBox(FormCollection formCollection)
-        {
-            EventEmail email = new EventEmail();
-            string value = formCollection["Email"];
-            email.Email = value;
-            db.EventEmails.Add(email);
-            db.SaveChanges();
-
-            return RedirectToAction("Confirm", "Cart");
-        }*/
     }
 }

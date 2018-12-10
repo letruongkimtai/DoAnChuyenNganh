@@ -23,5 +23,11 @@ namespace DoAnChuyenNganh_Web_Ver5.Controllers
             return PartialView(list.Take(4));
         }
 
+        public ActionResult EventLink()
+        {
+            var list = db.Events.OrderByDescending(a => a.StartDay).ToList();
+            return View(list.Take(2));
+        }
+
     }
 }

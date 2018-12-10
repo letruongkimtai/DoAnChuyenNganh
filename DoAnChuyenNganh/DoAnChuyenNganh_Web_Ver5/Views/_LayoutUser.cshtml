@@ -39,6 +39,7 @@
                         else
                         {
                             <li>@Html.Action("Login", "Account")</li>
+                            <li><a href="@Url.Action("SignUp","Account")">Đăng ký</a></li>
 
                         }
                     </ul>
@@ -122,7 +123,6 @@
                         <h4>Khách hàng</h4>
                         <ul>
                             <li><a href="@Url.Action("Index","Cart")">Giỏ hàng</a></li>
-                            <li><a href="@Url.Action("CheckOut","Cart")">Thanh toán</a></li>
                             <li><a href="@Url.Action("AccountDetail","Account")">Tài khoản</a></li>
                         </ul>
                     </div>
@@ -135,7 +135,6 @@
                         </ul>
                     </div>
                     <div class="col-md-4 about">
-
                         <div style="background-image:url(../../images/facebook.png);height:160px;width:400px;margin-top:20px"
                              class="fb-like" data-href="https://www.facebook.com/Double-King-Burger-246945036058041"
                              data-layout="button" data-action="like" data-size="small" data-show-faces="true" data-share="true">

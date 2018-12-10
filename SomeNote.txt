@@ -19,4 +19,6 @@ H: @url.action("action","controller",new{id=item.prid,url=request,url.tostring()
 	      ex: action(int id, string url) => new{id=item.prid,url=request,url.tostring()}
 
 
+
+
 /*----------------------------------------------APPLICATION---------------------------------------------------*/

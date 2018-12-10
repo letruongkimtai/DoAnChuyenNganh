@@ -30,8 +30,9 @@ namespace DoAnChuyenNganh_Web_Ver5.Controllers
 
         public ActionResult Menu(int id)
         {
-                 var item = from s in db.Products where s.TypeID == id select s;
-                 return View(item);
+            var item = from s in db.Products where s.TypeID == id select s;
+            Session["ProductID"] = id;
+            return View(item);
         }
 
         public ActionResult ShowAllProduct(int? page)
@@ -44,8 +45,9 @@ namespace DoAnChuyenNganh_Web_Ver5.Controllers
 
         public ActionResult AlsoWant()
         {
-            
-            return PartialView();
+            int id = (int)Session["ProductID"];
+            var list = db.Products.Where(a => a.TypeID == id).ToList();
+            return PartialView(list.Take(3));
         }
     }
 }

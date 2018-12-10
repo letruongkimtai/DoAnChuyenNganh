@@ -1,4 +1,6 @@
 ﻿@model IEnumerable<DoAnChuyenNganh_Web_Ver5.Models.Banner>
 
-
-
+@foreach (var item in Model)
+{
+    <a href="@item.URL"><img src="~/images/@item.BnImg" width="262" height="737" /></a>
+}

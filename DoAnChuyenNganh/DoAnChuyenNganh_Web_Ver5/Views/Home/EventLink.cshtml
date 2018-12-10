@@ -1,0 +1,10 @@
+﻿@model IEnumerable<DoAnChuyenNganh_Web_Ver5.Models.Event>
+
+
+@foreach (var item in Model)
+{
+    <a href="@Url.Action("Post","Event",new { id = item.EventID})">
+        <img src="~/images/@item.EventImg" width="1349" height="387">
+    </a>
+}
+
